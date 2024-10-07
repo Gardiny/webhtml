@@ -1,0 +1,35 @@
+<form id="cadastroDisciplinaForm" (submit)="save()" [formGroup]="formDisciplina">
+  <div class="backTitulo"><h3 class="tituloComponents">Cadastro de disciplinas</h3></div>
+  <div class="form-row">
+  <div class="col-md-2 mb-3">
+        <label for="nome" class="form-label">Codigo</label>
+        <input type="text" class="form-control" id="codigo" formControlName="codigo" placeholder="Codigo da disciplina">
+    </div>
+    <div class="col-md-4 mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="Nome da Disciplina">
+    </div>
+    <div class="col-md-2 mb-3">
+        <label for="carga horária" class="form-label">Carga horária</label>
+        <input type="text" class="form-control" id="carga horária" formControlName="carga_horaria" placeholder="Carga Horaria">
+    </div>
+
+  <div class="col-md-2 mb-3">
+      <label for="turma" class="form-label">Turma</label>
+      <select id="turma" class="form-select" formControlName="turma_id">
+          <option *ngFor="let t of turma" [ngValue]="t.id">{{t.nome}}</option>
+      </select>
+  </div>
+</div>
+<div class="col-md-4 mb-3">
+    <label for="professor" class="form-label">Professor</label>
+    <select id="professor" class="form-select" formControlName="professor_id">
+        <option *ngFor="let p of professor" [ngValue]="p.id">{{p.nome}}</option>
+    </select>
+</div>
+<div class="modal-footer">
+  <button type="submit" class="btn btn-primary" >Salvar</button>
+  <button type="button" class="btn btn-secondary" routerLink="./..">Cancelar</button>
+
+</div>
+</form>

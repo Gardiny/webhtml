@@ -1,0 +1,40 @@
+<form id="cadastroTurmaForm" (submit)="save()" [formGroup]="formUsuario">
+  <div class="backTitulo"><h3 class="tituloComponents">Cadastro de usuários</h3></div>
+  <div class="form-row">
+  <div class="col-md-4 mb-3">
+        <label for="Nome_completo" class="form-label">Nome Completo</label>
+        <input type="text" class="form-control" id="nomeSkill" formControlName="nome_completo" placeholder="Nome Completo" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label for="nome_usuario" class="form-label">Nome Usuario</label>
+        <input type="text" class="form-control" id="descricaoSkill" formControlName="nome_usuario" placeholder="Nome Usuario" required>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="senha" class="form-label">Senha do Usuario</label>
+      <input type="password" class="form-control" id="descricaoSkill" formControlName="senha" placeholder="Senha do Usuario" required>
+  </div>
+  </div>
+    <div class="col-md-4 mb-3">
+        <label for="tipoSkill" class="form-label">Tipo de Usuario</label>
+        <select class="form-select" id="tipoSkill" formControlName="papel" required>
+            <option value="">Selecione o papel</option>
+            <option value="ADMIN">ADMIN</option>
+            <option value="PROFESSOR">PROFESSOR</option>
+            <option value="COORDENADOR">COORDENADOR</option>
+        </select>
+    </div>
+    <!-- <div class="mb-3">
+        <label for="tipoSkill" class="form-label">Usuario ativo</label>
+        <select class="form-select" id="tipoSkill" formControlName="ativo" required>
+            <option value="">Selecione o papel</option>
+            <option value="true">ativo</option>
+            <option value="false">inativo</option>
+        </select>
+    </div> -->
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" >Salvar</button>
+        <button type="button" class="btn btn-secondary" routerLink="./..">Cancelar</button>
+
+    </div>
+</form>

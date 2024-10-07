@@ -1,0 +1,33 @@
+<div class="card mb-4">
+  <div class="card-header">
+    <i class="fas fa-table me-1"></i>
+    Ranqueamento dos Alunos
+  </div>
+  <div class="card-body">
+    <!-- Seleção de Disciplinas -->
+    <div class="mb-3">
+      <label for="disciplina">Selecione a Disciplina:</label>
+      <select id="disciplina" [(ngModel)]="disciplinaSelecionada" (change)="onDisciplinaChange()" class="form-select">
+        <option *ngFor="let disciplina of disciplinas" [value]="disciplina.id">
+          {{ disciplina.nome }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Tabela de Alunos e Notas -->
+    <table class="table table-striped" id="datatablesSimple">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Nota</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of registros">
+          <td>{{ item.nome }}</td>
+          <!-- <td>{{ item.nota }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

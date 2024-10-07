@@ -1,0 +1,26 @@
+<form id="cadastroSkillForm" (submit)="save()" [formGroup]="formSkill">
+  <div class="backTitulo"><h3 class="tituloComponents">Cadastro de Skill's</h3></div>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+        <label for="nomeSkill" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nomeSkill" formControlName="nome" placeholder="Nome da skill" required>
+    </div>
+    <div class="col-md-3 mb-3">
+        <label for="tipoSkill" class="form-label">Tipo de Skill</label>
+        <select class="form-select" id="tipoSkill" formControlName="tipo" required>
+            <option value="">Selecione o tipo</option>
+            <option value="SOFT_SKILL">Soft Skill</option>
+            <option value="HARD_SKILL">Hard Skill</option>
+        </select>
+    </div>
+  </div>
+  <div class="col-md-12 mb-3">
+    <label for="descricaoSkill" class="form-label">Descrição</label>
+    <input type="text" class="form-control" id="descricaoSkill" formControlName="descricao" placeholder="Descrição da skill" required>
+</div>
+    <div class="modal-footer">
+      <button type="submit" value="salvar" class="btn btn-primary">Salvar</button>
+      <button type="button" class="btn btn-secondary" routerLink="./..">Cancelar</button>
+
+    </div>
+</form>

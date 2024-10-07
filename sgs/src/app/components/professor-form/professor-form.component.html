@@ -1,0 +1,28 @@
+<form (submit)="save()" [formGroup]="formProfessor">
+  <div class="backTitulo"><h3 class="tituloComponents">Cadastro de professores</h3></div>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" formControlName="nome"  placeholder="Digite o nome do professor">
+    </div>
+    <div class="col-md-4 mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Digite o email">
+    </div>
+    <div class="col-md-3 mb-3">
+        <label for="telefone" class="form-label">Telefone</label>
+        <input type="tel" class="form-control" id="telefone" formControlName="telefone" placeholder="Digite o telefone">
+    </div>
+    <div class="col-md-3 mb-3">
+        <label for="usuario" class="form-label">Usuario</label>
+        <select id="usuario" class="form-select" formControlName="usuario_id">
+            <option *ngFor="let u of usuario" [ngValue]="u.id">{{u.nome_completo}}</option>
+        </select>
+    </div>
+  </div>
+    <div class="modal-footer">
+      <button type="submit" value="Salvar" class="btn btn-primary">Salvar</button>
+        <button type="button" class="btn btn-secondary" routerLink="./..">Cancelar</button>
+
+    </div>
+  </form>

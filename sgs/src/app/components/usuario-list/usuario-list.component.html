@@ -1,0 +1,32 @@
+<div class="card mb-4"></div>
+    <div class="card-header">
+      <i class="fas fa-table me-1"></i>
+      Registro de Usuarios
+    </div>
+    <div class="card-body">
+      <table class="table table-striped" id="datatablesSimple">
+        <thead>
+          <tr>
+            <th>Nome Completo</th>
+            <th>Nome Usuario</th>
+            <th>Papel</th>
+            <th>Ativo</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of registros">
+            <td>{{ item.nome_completo }}</td>
+            <td>{{ item.nome_usuario }}</td>
+            <td>{{ item.papel }}</td>
+            <td>{{ item.ativo }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm" title="Editar" routerLink="./form" [queryParams]="{id: item.id}">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="btn btn-danger btn-sm" title="Excluir" (click)="delete(item.id)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>

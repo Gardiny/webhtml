@@ -1,0 +1,118 @@
+<div class="container">
+  <div class="main-body">
+    <div class="row gutters-sm">
+      <!-- Coluna da imagem do usuário -->
+      <div class="col-md-4 mb-3">
+        <div class="card" style="width: 100%; height: 100%;">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+              <div class="mt-3">
+                <h4>{{registro.nome}}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna das informações gerais (Nome, Email, Telefone, Status) -->
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <!-- Informações Gerais apresentadas lado a lado -->
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Nome:</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{registro.nome}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email:</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{registro.email}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Telefone:</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{registro.telefone}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Status:</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{registro.status}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Sexo:</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{ registro.sexo === 'F' ? 'Feminino' : (registro.sexo === 'M' ? 'Masculino' : 'Outro') }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <!-- Hard Skills -->
+        <div class="col-md-6 mb-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <h6 class="d-flex align-items-center mb-3">Hard Skills</h6>
+              <div *ngFor="let skill of hardSkills">
+                <small>{{ skill.skill_nome }}</small>
+                <div class="progress mb-3" style="height: 5px">
+                  <div
+                    class="progress-bar bg-primary"
+                    role="progressbar"
+                    [style.width]="skill.nota_final + '%'"
+                    [attr.aria-valuenow]="skill.nota_final"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Soft Skills -->
+        <div class="col-md-6 mb-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <h6 class="d-flex align-items-center mb-3">Soft Skills</h6>
+              <div *ngFor="let skill of softSkills">
+                <small>{{ skill.skill_nome }}</small>
+                <div class="progress mb-3" style="height: 5px">
+                  <div
+                    class="progress-bar bg-primary"
+                    role="progressbar"
+                    [style.width]="skill.nota_final + '%'"
+                    [attr.aria-valuenow]="skill.nota_final"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
