@@ -11,32 +11,14 @@ import { environment } from '../../../environments/environment';
 })
 export class JwtLoginService implements ILoginService {
 
-  // constructor() {
-  //   const userData = sessionStorage.getItem('usuario') || '{}';
-  //   const usuario = JSON.parse(userData);
-  //   this.usuarioAutenticado.next(usuario);
-  //   if (this.isLoggedIn()) {
-  //     this.agendarRenovacaoToken();
-  //   }
-  //  }
-
   constructor() {
-
-    // Verificação e simulação do sessionStorage apenas se não estiver disponível
-    if (typeof window !== 'undefined' && typeof window.sessionStorage === "undefined") {
-      (window as any).sessionStorage = {
-        getItem: function (key: string) { return null; },
-        setItem: function (key: string, value: string) {},
-        removeItem: function (key: string) {},
-        clear: function () {}
-      };
-    }
-
-    const userData = sessionStorage.getItem('usuario') || '{}';
-    const usuario = JSON.parse(userData);
-    this.usuarioAutenticado.next(usuario);
-    if (this.isLoggedIn()) {
-      this.agendarRenovacaoToken();
+    if (this.isBrowser()) {
+      const userData = sessionStorage.getItem('usuario') || '{}';
+      const usuario = JSON.parse(userData);
+      this.usuarioAutenticado.next(usuario);
+      if (this.isLoggedIn()) {
+        this.agendarRenovacaoToken();
+      }
     }
   }
 
@@ -45,6 +27,11 @@ export class JwtLoginService implements ILoginService {
   private router: Router = inject(Router);
   private fezRequisicao: boolean = false;
   private intervaloRenovacao: any;
+
+  // Verifica se está no lado do cliente (navegador)
+  private isBrowser(): boolean {
+    return typeof window !== 'undefined' && typeof sessionStorage !== 'undefined';
+  }
 
   private agendarRenovacaoToken(): void {
     const intervalo = 1000 * 10;
@@ -64,7 +51,6 @@ export class JwtLoginService implements ILoginService {
       }
     });
   }
-
 
   login(usuario: Usuario): void {
     const url = environment.API_URL + '/login';
@@ -90,28 +76,40 @@ export class JwtLoginService implements ILoginService {
     usuario.nome_usuario = conteudoToken.nome_usuario;
     usuario.papel = conteudoToken.papel;
 
-    sessionStorage.setItem('token', token);
-    sessionStorage.setItem('usuario', JSON.stringify(usuario));
-    sessionStorage.setItem('tokenExp', tokenExp.toString());
+    if (this.isBrowser()) {
+      sessionStorage.setItem('token', token);
+      sessionStorage.setItem('usuario', JSON.stringify(usuario));
+      sessionStorage.setItem('tokenExp', tokenExp.toString());
+    }
 
     this.usuarioAutenticado.next(usuario);
   }
 
   logout(): void {
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('usuario');
-    sessionStorage.removeItem('tokenExp');
+    if (this.isBrowser()) {
+      sessionStorage.removeItem('token');
+      sessionStorage.removeItem('usuario');
+      sessionStorage.removeItem('tokenExp');
+    }
     document.cookie = 'XSRF-TOKEN=; Max-Age=0; path=/';
     clearInterval(this.intervaloRenovacao);
     this.router.navigate(['/login']);
   }
 
   isLoggedIn(): boolean {
-    
+    if (!this.isBrowser()) {
+      return false;
+    }
+
     const tokenExp = sessionStorage.getItem('tokenExp');
+    if (!tokenExp) {
+      return false;
+    }
+
     const tempoExpiracao = new Date(Number(tokenExp));
     const agora = new Date();
     const estaExpirado = tempoExpiracao < agora;
+
     if (estaExpirado) {
       this.logout();
     }

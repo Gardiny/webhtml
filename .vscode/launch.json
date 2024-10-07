@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SoftskillsApplication<softskills>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.softskills.softskills.SoftskillsApplication",
+            "projectName": "softskills",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
