@@ -12,6 +12,7 @@ import { environment } from '../../../environments/environment';
 export class JwtLoginService implements ILoginService {
 
   constructor() {
+    // Verifica se está no lado do cliente (navegador) antes de acessar sessionStorage
     if (this.isBrowser()) {
       const userData = sessionStorage.getItem('usuario') || '{}';
       const usuario = JSON.parse(userData);
@@ -28,7 +29,7 @@ export class JwtLoginService implements ILoginService {
   private fezRequisicao: boolean = false;
   private intervaloRenovacao: any;
 
-  // Verifica se está no lado do cliente (navegador)
+  // Novo método para verificar se está no navegador
   private isBrowser(): boolean {
     return typeof window !== 'undefined' && typeof sessionStorage !== 'undefined';
   }
@@ -76,6 +77,7 @@ export class JwtLoginService implements ILoginService {
     usuario.nome_usuario = conteudoToken.nome_usuario;
     usuario.papel = conteudoToken.papel;
 
+    // Verifica se está no navegador antes de usar sessionStorage
     if (this.isBrowser()) {
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('usuario', JSON.stringify(usuario));
@@ -86,6 +88,7 @@ export class JwtLoginService implements ILoginService {
   }
 
   logout(): void {
+    // Verifica se está no navegador antes de limpar sessionStorage
     if (this.isBrowser()) {
       sessionStorage.removeItem('token');
       sessionStorage.removeItem('usuario');
@@ -97,6 +100,7 @@ export class JwtLoginService implements ILoginService {
   }
 
   isLoggedIn(): boolean {
+    // Verifica se está no navegador antes de checar o token
     if (!this.isBrowser()) {
       return false;
     }

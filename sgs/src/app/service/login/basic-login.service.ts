@@ -9,32 +9,26 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class BasicLoginService implements ILoginService{
+export class BasicLoginService implements ILoginService {
 
-  // constructor() { 
-  //   const userData = sessionStorage.getItem('usuario') || '{}';
-  //   const usuario = JSON.parse(userData);
-  //   this.usuarioAutenticado.next(usuario);
-  // }
-
-  constructor() { 
-    if (typeof window !== 'undefined' && typeof window.sessionStorage === "undefined") {
-      (window as any).sessionStorage = {
-        getItem: function (key: string) { return null; },
-        setItem: function (key: string, value: string) {},
-        removeItem: function (key: string) {},
-        clear: function () {}
-      };
+  constructor() {
+    // Verifica se está no navegador antes de acessar o sessionStorage
+    if (this.isBrowser()) {
+      const userData = sessionStorage.getItem('usuario') || '{}';
+      const usuario = JSON.parse(userData);
+      this.usuarioAutenticado.next(usuario);
     }
-    const userData = sessionStorage.getItem('usuario') || '{}';
-    const usuario = JSON.parse(userData);
-    this.usuarioAutenticado.next(usuario);
   }
 
-  
   usuarioAutenticado: BehaviorSubject<Usuario> = new BehaviorSubject<Usuario>(<Usuario>{});
   private http: HttpClient = inject(HttpClient);
   private router: Router = inject(Router);
+
+  // Método para verificar se está no navegador
+  private isBrowser(): boolean {
+    
+    return typeof window !== 'undefined' && typeof sessionStorage !== 'undefined';
+  }
 
   login(usuario: Usuario): void {
     const credenciaisCodificadas = btoa(
@@ -49,25 +43,35 @@ export class BasicLoginService implements ILoginService{
 
     const url = environment.API_URL + '/login';
 
-    this.http.get<Usuario> (url, opcoesHttp).subscribe({
-      next: (usuario: Usuario) => {
-        sessionStorage.setItem('usuario', JSON.stringify(usuario))
-        this.usuarioAutenticado.next(usuario)
-      },
-      complete: () => {
-        this.router.navigate(['/'])
-      }
-    });
+    // Verifica se está no navegador antes de acessar sessionStorage
+    if (this.isBrowser()) {
+      this.http.get<Usuario>(url, opcoesHttp).subscribe({
+        next: (usuario: Usuario) => {
+          sessionStorage.setItem('usuario', JSON.stringify(usuario));
+          this.usuarioAutenticado.next(usuario);
+        },
+        complete: () => {
+          this.router.navigate(['/']);
+        }
+      });
+    }
   }
 
   logout(): void {
-    sessionStorage.removeItem('usuario');
+    // Verifica se está no navegador antes de limpar sessionStorage
+    if (this.isBrowser()) {
+      sessionStorage.removeItem('usuario');
+    }
     document.cookie = 'XSRF-TOKEN=; Max-Age=0; path=/';
-    this.router.navigate(['/login'])
-    // throw new Error('Method not implemented.');
+    this.router.navigate(['/login']);
   }
 
   isLoggedIn(): boolean {
+    // Verifica se está no navegador antes de acessar sessionStorage
+    if (!this.isBrowser()) {
+      return false;
+    }
+
     const userData = sessionStorage.getItem('usuario') || '{}';
     const usuario = JSON.parse(userData);
     return Object.keys(usuario).length > 0;
@@ -77,7 +81,6 @@ export class BasicLoginService implements ILoginService{
     return request.clone({
       withCredentials: true,
       headers: request.headers.set('X-Requested-With', 'XMLHttpRequest')
-    })
+    });
   }
-
 }
