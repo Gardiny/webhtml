@@ -87,15 +87,25 @@ export class JwtLoginService implements ILoginService {
     this.usuarioAutenticado.next(usuario);
   }
 
+  // logout(): void {
+  //   // Verifica se está no navegador antes de limpar sessionStorage
+  //   if (this.isBrowser()) {
+  //     sessionStorage.removeItem('token');
+  //     sessionStorage.removeItem('usuario');
+  //     sessionStorage.removeItem('tokenExp');
+  //   }
+  //   document.cookie = 'XSRF-TOKEN=; Max-Age=0; path=/';
+  //   clearInterval(this.intervaloRenovacao);
+  //   this.router.navigate(['/login']);
+  // }
   logout(): void {
-    // Verifica se está no navegador antes de limpar sessionStorage
-    if (this.isBrowser()) {
-      sessionStorage.removeItem('token');
-      sessionStorage.removeItem('usuario');
-      sessionStorage.removeItem('tokenExp');
+    // Verifica se está no navegador antes de acessar o document e cookies
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      // Modificar ou apagar cookies usando o document
+      document.cookie = 'XSRF-TOKEN=; Max-Age=0; path=/';
     }
-    document.cookie = 'XSRF-TOKEN=; Max-Age=0; path=/';
-    clearInterval(this.intervaloRenovacao);
+  
+    // Lógica de redirecionamento ou outras ações de logout
     this.router.navigate(['/login']);
   }
 

@@ -57,13 +57,21 @@ export class BasicLoginService implements ILoginService {
     }
   }
 
+  // logout(): void {
+  //   // Verifica se está no navegador antes de limpar sessionStorage
+  //   if (this.isBrowser()) {
+  //     sessionStorage.removeItem('usuario');
+  //   }
+  //   document.cookie = 'XSRF-TOKEN=; Max-Age=0; path=/';
+  //   this.router.navigate(['/login']);
+  
   logout(): void {
-    // Verifica se está no navegador antes de limpar sessionStorage
-    if (this.isBrowser()) {
-      sessionStorage.removeItem('usuario');
-    }
-    document.cookie = 'XSRF-TOKEN=; Max-Age=0; path=/';
-    this.router.navigate(['/login']);
+      // Verifica se está no navegador antes de limpar sessionStorage e modificar cookies
+      if (this.isBrowser()) {
+        sessionStorage.removeItem('usuario');
+        document.cookie = 'XSRF-TOKEN=; Max-Age=0; path=/';
+      }
+      this.router.navigate(['/login']);
   }
 
   isLoggedIn(): boolean {
