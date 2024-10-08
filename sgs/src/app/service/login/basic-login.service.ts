@@ -30,6 +30,33 @@ export class BasicLoginService implements ILoginService {
     return typeof window !== 'undefined' && typeof sessionStorage !== 'undefined';
   }
 
+  // login(usuario: Usuario): void {
+  //   const credenciaisCodificadas = btoa(usuario.nome_usuario + ':' + usuario.senha);
+  
+  //   const opcoesHttp = {
+  //     headers: new HttpHeaders({
+  //       'Authorization': 'Basic ' + credenciaisCodificadas
+  //     })
+  //   };
+  
+  //   const url = environment.API_URL + '/login';
+  
+  //   if (this.isBrowser()) {
+  //     this.http.get<Usuario>(url, opcoesHttp).subscribe({
+  //       next: (usuario: Usuario) => {
+  //         sessionStorage.setItem('usuario', JSON.stringify(usuario));
+  //         this.usuarioAutenticado.next(usuario);
+  //         this.router.navigate(['/']); // Redireciona após login bem-sucedido
+  //       },
+  //       error: (err) => {
+  //         console.error('Falha no login', err); // Trate o erro aqui
+  //         alert('Usuário ou senha incorretos');
+  //       }
+  //     });
+  //   }
+  // }
+  
+
   login(usuario: Usuario): void {
     const credenciaisCodificadas = btoa(
       usuario.nome_usuario + ':' + usuario.senha
@@ -37,7 +64,7 @@ export class BasicLoginService implements ILoginService {
 
     const opcoesHttp = {
       headers: new HttpHeaders({
-        'Authorization': 'Basic ' + credenciaisCodificadas
+        'Authorization': 'basic ' + credenciaisCodificadas
       })
     };
 
