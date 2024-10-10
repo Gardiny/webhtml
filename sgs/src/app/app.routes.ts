@@ -17,7 +17,7 @@ import { UsuarioListComponent } from './components/usuario-list/usuario-list.com
 import { UsuarioFormComponent } from './components/usuario-form/usuario-form.component';
 import { RankingListComponent } from './components/ranking-list/ranking-list.component';
 import { AlunoVisualizacaoComponent } from './components/aluno-visualizacao/aluno-visualizacao.component';
-import { LoginComponent } from './components/login/login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { AvaliarFormComponent } from './components/avaliar-form/avaliar-form.component';
 import { AvaliarListComponent } from './components/avaliar-list/avaliar-list.component';
 import { authGuard } from './service/auth.guard';

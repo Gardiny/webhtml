@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Usuario } from '../../../model/usuario';
-import { ILoginService, LoginService } from '../../../service/login/i-login.service';
+import { Usuario } from '../../model/usuario';
+import { ILoginService, LoginService } from '../../service/login/i-login.service';
 
 @Component({
   selector: 'app-login',
