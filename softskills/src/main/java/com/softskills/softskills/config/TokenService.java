@@ -21,7 +21,7 @@ public class TokenService {
     private String secret;
 
     private Instant generateExpirationDate() {
-        LocalDateTime dateTime = LocalDateTime.now().plusSeconds(45);
+        LocalDateTime dateTime = LocalDateTime.now().plusMinutes(15);
         ZoneId zoneId = ZoneId.systemDefault();
         ZonedDateTime zonedDateTime = dateTime.atZone(zoneId);
         return zonedDateTime.toInstant();

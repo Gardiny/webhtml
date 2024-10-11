@@ -5,7 +5,7 @@ INSERT INTO usuario (nome_completo, nome_usuario, senha, papel, ativo) VALUES
 ('Nasserala', 'macarronada', 'massa', 'PROFESSOR', true),
 ('Rodrigo', 'rodrigozinho', 'desing', 'PROFESSOR', true),
 ('Catarina', 'catrina', 'artigo', 'PROFESSOR', true),
-('Admin','admin','admin','ADMIN',true);
+('Admin','admin','$2a$10$nRXqZww0wr/jGwxqmFdYEuwWKPb5fMnLtfryw0uRd.gsMA1ujD652','ADMIN',true);
 
 INSERT INTO coordenador ( nome, email, telefone, usuario_id) VALUES 
 ('Daricelio', 'daricelio@sou.ufac.br', '(68)98756-2547', 1);

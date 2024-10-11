@@ -47,4 +47,5 @@ export const routes: Routes = [
     { path: 'avaliacao/form', component: AvaliarFormComponent}
   ] },
   { path: 'login', component: LoginComponent },
+  { path: '**', redirectTo: '' }
 ];

@@ -76,9 +76,9 @@ public class Seguranca {
 
         http.authorizeHttpRequests(
             authorize -> authorize
-                .anyRequest().permitAll() // pode navegar sem login
-                // .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                // .anyRequest().authenticated()
+                // .anyRequest().permitAll() // pode navegar sem login
+                .requestMatchers(HttpMethod.POST, "/login").permitAll()
+                .anyRequest().authenticated()
         );
 
         http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
