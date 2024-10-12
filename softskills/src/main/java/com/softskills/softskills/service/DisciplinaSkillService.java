@@ -1,10 +1,13 @@
 package com.softskills.softskills.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.softskills.softskills.controller.dto.DisciplinaSkillDto;
+import com.softskills.softskills.model.AlunoSkill;
 import com.softskills.softskills.model.Disciplina;
 import com.softskills.softskills.model.DisciplinaSkill;
 import com.softskills.softskills.model.DisciplinaSkillId;
@@ -35,6 +38,14 @@ public class DisciplinaSkillService{
 
     public DisciplinaSkill get(DisciplinaSkillId id) {
         return repo.findById(id).orElse(null);
+    }
+
+    public List<DisciplinaSkill> getByDisciplinaId(Long id){
+        return repo.getByDisciplinaId(id);
+    }
+
+    public List<DisciplinaSkill> getBySkillId(Long id){
+        return repo.getBySkillId(id);
     }
 
     public DisciplinaSkill save(DisciplinaSkillDto dto) {

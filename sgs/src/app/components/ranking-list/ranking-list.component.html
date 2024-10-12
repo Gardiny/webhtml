@@ -4,12 +4,12 @@
     Ranqueamento dos Alunos
   </div>
   <div class="card-body">
-    <!-- Seleção de Disciplinas -->
-    <div class="mb-3">
-      <label for="disciplina">Selecione a Disciplina:</label>
-      <select id="disciplina" [(ngModel)]="disciplinaSelecionada" (change)="onDisciplinaChange()" class="form-select">
-        <option *ngFor="let disciplina of disciplinas" [value]="disciplina.id">
-          {{ disciplina.nome }}
+    <!-- Seleção de Skills -->
+    <div class="col-md-4 mb-3">
+      <label for="skill">Selecione a Skill:</label>
+      <select id="skill" [(ngModel)]="skillSelecionada" (change)="onSkillChange()" class="form-select">
+        <option *ngFor="let skill of skills" [value]="skill.id">
+          {{ skill.nome }}
         </option>
       </select>
     </div>
@@ -24,8 +24,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of registros">
-          <td>{{ item.nome }}</td>
-          <!-- <td>{{ item.nota }}</td> -->
+          <td>{{ item.aluno_nome }}</td>
+          <td>{{ item.nota_final }}</td>
         </tr>
       </tbody>
     </table>

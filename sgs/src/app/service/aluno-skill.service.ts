@@ -35,7 +35,11 @@ export class AlunoSkillService {
     return this.http.get<AlunoSkill>(url);
   }
   getByAluno(id: number): Observable<AlunoSkill[]> {
-    let url = this.apiUrl + id;
+    let url = this.apiUrl + "alunoId/" + id;
+    return this.http.get<AlunoSkill[]>(url);
+  }
+  getBySkill(id: number): Observable<AlunoSkill[]> {
+    let url = this.apiUrl + "skillId/" + id;
     return this.http.get<AlunoSkill[]>(url);
   }
   save(objeto: AlunoSkill): Observable<AlunoSkill> {

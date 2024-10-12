@@ -1,7 +1,6 @@
 package com.softskills.softskills.controller;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
@@ -52,10 +51,18 @@ public class AlunoSkillController {
         return ResponseEntity.ok(dtos);
     }
 
-    @GetMapping("/{alunoId}")
-    public ResponseEntity<List<AlunoSkillDto>> get(@PathVariable Long alunoId
+    @GetMapping("/alunoId/{alunoId}")
+    public ResponseEntity<List<AlunoSkillDto>> getByAluno(@PathVariable Long alunoId
         ) {
-        List<AlunoSkill> registros = servico.get(alunoId);
+        List<AlunoSkill> registros = servico.getByAluno(alunoId);
+        List<AlunoSkillDto> dtos = registros.stream().map(mapper::toDto).collect(Collectors.toList());
+        return ResponseEntity.ok(dtos);
+    }
+
+    @GetMapping("/skillId/{skillId}")
+    public ResponseEntity<List<AlunoSkillDto>> getBySkill(@PathVariable Long skillId
+        ) {
+        List<AlunoSkill> registros = servico.getBySkill(skillId);
         List<AlunoSkillDto> dtos = registros.stream().map(mapper::toDto).collect(Collectors.toList());
         return ResponseEntity.ok(dtos);
     }

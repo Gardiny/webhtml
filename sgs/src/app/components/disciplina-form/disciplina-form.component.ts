@@ -60,8 +60,8 @@ export class DisciplinaFormComponent implements IForm<Disciplina>{
     codigo: new FormControl<string | null>(null),
     nome: new FormControl<string | null>(null),
     carga_horaria: new FormControl<string | null> (null),
-    turma_id: new FormControl<number| null> (null),
-    professor_id: new FormControl<number | null> (null)
+    data_inicio: new FormControl<string | null> (null),
+    data_fim: new FormControl<string | null> (null)
   });
 
   get form(){

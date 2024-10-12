@@ -1,5 +1,8 @@
 package com.softskills.softskills.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -15,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.softskills.softskills.controller.dto.AlunoSkillDto;
 import com.softskills.softskills.controller.dto.TurmaAlunoDto;
 import com.softskills.softskills.controller.mapper.TurmaAlunoMapper;
+import com.softskills.softskills.model.AlunoSkill;
 import com.softskills.softskills.model.TurmaAluno;
 import com.softskills.softskills.model.TurmaAlunoId;
 import com.softskills.softskills.service.TurmaAlunoService;
@@ -42,6 +47,22 @@ public class TurmaAlunoController {
         Pageable page) {
         Page<TurmaAluno> registros = servico.get(page);
         Page<TurmaAlunoDto> dtos = registros.map(mapper::toDto);
+        return ResponseEntity.ok(dtos);
+    }
+
+    @GetMapping("/turmaId/{turmaId}")
+    public ResponseEntity<List<TurmaAlunoDto>> getByTurma(@PathVariable Long turmaId
+        ) {
+        List<TurmaAluno> registros = servico.getByTurma(turmaId);
+        List<TurmaAlunoDto> dtos = registros.stream().map(mapper::toDto).collect(Collectors.toList());
+        return ResponseEntity.ok(dtos);
+    }
+
+    @GetMapping("/alunoId/{alunoId}")
+    public ResponseEntity<List<TurmaAlunoDto>> getByAluno(@PathVariable Long alunoId
+        ) {
+        List<TurmaAluno> registros = servico.getbyAluno(alunoId);
+        List<TurmaAlunoDto> dtos = registros.stream().map(mapper::toDto).collect(Collectors.toList());
         return ResponseEntity.ok(dtos);
     }
 

@@ -1,5 +1,8 @@
 package com.softskills.softskills.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -9,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.softskills.softskills.controller.dto.DisciplinaSkillDto;
+import com.softskills.softskills.controller.dto.DisciplinaSkillDto;
 import com.softskills.softskills.controller.mapper.DisciplinaSkillMapper;
+import com.softskills.softskills.model.DisciplinaSkill;
 import com.softskills.softskills.model.DisciplinaSkill;
 import com.softskills.softskills.model.DisciplinaSkillId;
 import com.softskills.softskills.service.DisciplinaSkillService;
@@ -45,6 +50,22 @@ public class DisciplinaSkillController {
         Pageable page) {
         Page<DisciplinaSkill> registros = servico.get(page);
         Page<DisciplinaSkillDto> dtos = registros.map(mapper::toDto);
+        return ResponseEntity.ok(dtos);
+    }
+
+    @GetMapping("/disciplinaId/{disciplinaId}")
+    public ResponseEntity<List<DisciplinaSkillDto>> getByDisciplinaId(@PathVariable Long disciplinaId
+        ) {
+        List<DisciplinaSkill> registros = servico.getByDisciplinaId(disciplinaId);
+        List<DisciplinaSkillDto> dtos = registros.stream().map(mapper::toDto).collect(Collectors.toList());
+        return ResponseEntity.ok(dtos);
+    }
+
+    @GetMapping("/skillId/{skillId}")
+    public ResponseEntity<List<DisciplinaSkillDto>> getBySkillId(@PathVariable Long skillId
+        ) {
+        List<DisciplinaSkill> registros = servico.getBySkillId(skillId);
+        List<DisciplinaSkillDto> dtos = registros.stream().map(mapper::toDto).collect(Collectors.toList());
         return ResponseEntity.ok(dtos);
     }
 

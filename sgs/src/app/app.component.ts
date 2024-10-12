@@ -39,7 +39,7 @@ import { Usuario } from './model/usuario';
     DisciplinaFormComponent,
     SkillFormComponent,
     AlertaComponent,
-],
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -72,7 +72,6 @@ export class AppComponent {
       }
     });
   }
-
   ngOnInit(): void {
     if (isPlatformBrowser(this.plataformaId)) {
       this.requsicaoPaginada.size = parseInt(localStorage.getItem('tamanhoPagina') || '5');
@@ -115,6 +114,11 @@ export class AppComponent {
   navigateTo(route: string) {
     this.router.navigate([route]);
   }
+  isVisible(): boolean {
+    const visibleRoutes = ['/'];
+    return visibleRoutes.includes(this.router.url);
+  }
+
 
   isLoggendIn(): boolean {
     return this.loginService.isLoggedIn();
@@ -127,5 +131,5 @@ export class AppComponent {
   logout(): void {
     this.loginService.logout();
   }
-  
+
 }

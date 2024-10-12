@@ -9,10 +9,10 @@ import jakarta.persistence.MapsId;
 
 @Entity
 public class TurmaAluno implements Serializable{
-
+    
     @EmbeddedId
     private TurmaAlunoId id;
-
+    
     @ManyToOne
     @MapsId("turma")
     private Turma turma;

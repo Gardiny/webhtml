@@ -1,5 +1,7 @@
 package com.softskills.softskills.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -34,6 +36,14 @@ public class TurmaAlunoService {
 
     public Page<TurmaAluno> get(Pageable page){
         return repo.findAll(page);
+    }
+
+    public List<TurmaAluno> getbyAluno(Long id) {
+        return repo.getByAluno(id);
+    }
+
+    public List<TurmaAluno> getByTurma(Long id) {
+        return repo.getByTurma(id);
     }
 
     public TurmaAluno get(TurmaAlunoId id) {

@@ -22,4 +22,8 @@ public interface AlunoSkillRepository extends JpaRepository<AlunoSkill, AlunoSki
     )
     List<AlunoSkill> findByAluno(Long alunoId);
 
+    @Query(
+        "Select as from AlunoSkill as where as.skill.id = :skillId"
+    )
+    List<AlunoSkill> findBySkill(Long skillId);
 }

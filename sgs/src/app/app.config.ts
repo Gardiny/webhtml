@@ -31,6 +31,6 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideHttpClient(withFetch(), withInterceptors([erroInterceptor, authInterceptor]), withXsrfConfiguration({cookieName: 'XSRF-TOKEN', headerName: 'X-XSRF-TOKEN'})), // Corrigido aqui
     { provide: LoginService, useFactory: loginServiceFactory}
-    //  importProvidersFrom(HttpClientXsrfModule)
-  ],
-}
+    //  importProvidersFrom(HttpClientXsrfModule)  ],
+
+  ],  }

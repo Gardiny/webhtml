@@ -15,7 +15,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   templateUrl: './skill-list.component.html',
   styleUrls: ['./skill-list.component.css'],
-  imports: [CommonModule, FormsModule, RouterLink]
+  imports: [CommonModule, FormsModule, RouterLink,]
 })
 export class SkillListComponent implements IList<Skill>, OnInit {
   registros: Skill[] = [];
@@ -49,6 +49,17 @@ export class SkillListComponent implements IList<Skill>, OnInit {
         console.error('Erro ao excluir a skill:', err);
       }
     });
+  }
+  irParaPagina(pagina: number): void {
+    if (pagina >= 0 && pagina < this.respostaPaginada.totalPages) {
+      this.requisicaoPaginada.page = pagina;
+      this.get(this.termoBusca);
+    }
+  }
+
+  // Gera o array de números de páginas para exibir no paginador
+  paginas(): number[] {
+    return Array(this.respostaPaginada.totalPages).fill(0).map((x, i) => i);
   }
 }
 

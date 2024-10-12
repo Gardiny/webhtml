@@ -22,6 +22,14 @@
   padding-left: 200px;
   font-weight: bold;
  }
+ .labelAvaliacao{
+  margin-right: 15px;  
+  margin-bottom: 10px; 
+  display: inline-block;
+ }
+ #paginacao{
+  text-align: center;
+ }
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;

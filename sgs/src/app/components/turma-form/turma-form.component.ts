@@ -49,6 +49,8 @@ export class TurmaFormComponent implements IForm<Turma>{
   formTurma = new FormGroup({
     nome: new FormControl<string | null>(null),
     quant_vagas: new FormControl<string| null>(null),
+    data_inicio: new FormControl<string| null>(null),
+    data_fim: new FormControl<string| null>(null),
     capacitacao_id: new FormControl<number| null> (null)
   });
 

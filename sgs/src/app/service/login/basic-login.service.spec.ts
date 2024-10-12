@@ -14,8 +14,8 @@
 //     expect(service).toBeTruthy();
 //   });
 // });
-
 import { TestBed } from '@angular/core/testing';
+
 import { BasicLoginService } from './basic-login.service';
 
 describe('BasicLoginService', () => {
@@ -29,7 +29,7 @@ describe('BasicLoginService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
+  
   it('should return true if user is logged in', () => {
     const usuarioMock = { nome_usuario: 'test', senha: '123' };
     sessionStorage.setItem('usuario', JSON.stringify(usuarioMock));

@@ -5,11 +5,18 @@
         <label for="nomeSkill" class="form-label">Nome</label>
         <input type="text" class="form-control" id="nomeSkill" formControlName="nome" placeholder="Nome da Turma" required>
     </div>
-
     <div class="col-md-2 mb-3">
-        <label for="descricaoSkill" class="form-label">Quantidade de Vagas</label>
-        <input type="text" class="form-control" id="descricaoSkill" formControlName="quant_vagas" placeholder="Número de vagas" required>
+      <label for="descricaoSkill" class="form-label">Quantidade de Vagas</label>
+      <input type="text" class="form-control" id="descricaoSkill" formControlName="quant_vagas" placeholder="Número de vagas" required>
+  </div>
+    <div class="col-md-2 mb-3">
+        <label for="data inicio" class="form-label">Data Inicio</label>
+        <input type="date" class="form-control" id="data inicio" formControlName="data_inicio" placeholder="Data inicio" required>
     </div>
+    <div class="col-md-2 mb-3">
+      <label for="data fim" class="form-label">Data Fim</label>
+      <input type="date" class="form-control" id="data fim" formControlName="data_fim" placeholder="Data Fim" required>
+  </div>
     <div class="col-md-3 mb-3">
         <label for="capacitacao" class="form-label">Capacitação</label>
         <select id="capacitacao" class="form-select" formControlName="capacitacao_id">

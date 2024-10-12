@@ -1,11 +1,12 @@
 package com.softskills.softskills.model;
 
+
+import java.time.LocalDate;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Disciplina {
@@ -23,12 +24,12 @@ public class Disciplina {
 
     @Column(nullable = false)
     private Integer carga_horaria;
-    
-    @ManyToOne
-    private Turma turma;
 
-    @ManyToOne
-    private Professor professor;
+    @Column(nullable = false)
+    private LocalDate data_inicio;
+
+    @Column(nullable = false)
+    private LocalDate data_fim;
 
     public Long getId() {
         return id;
@@ -62,19 +63,19 @@ public class Disciplina {
         this.carga_horaria = carga_horaria;
     }
 
-    public Turma getTurma() {
-        return turma;
+    public LocalDate getData_inicio() {
+        return data_inicio;
     }
 
-    public void setTurma(Turma turma) {
-        this.turma = turma;
-    }
-    
-    public Professor getProfessor() {
-        return professor;
+    public void setData_inicio(LocalDate data_inicio) {
+        this.data_inicio = data_inicio;
     }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
+    public LocalDate getData_fim() {
+        return data_fim;
+    }
+
+    public void setData_fim(LocalDate data_fim) {
+        this.data_fim = data_fim;
     }
 }

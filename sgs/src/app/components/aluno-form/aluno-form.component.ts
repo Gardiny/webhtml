@@ -53,5 +53,5 @@ export class AlunoFormComponent implements IForm<Aluno>{
       }
     })
   }
-
+  
 }

@@ -13,19 +13,14 @@
         <label for="carga horária" class="form-label">Carga horária</label>
         <input type="text" class="form-control" id="carga horária" formControlName="carga_horaria" placeholder="Carga Horaria">
     </div>
-
-  <div class="col-md-2 mb-3">
-      <label for="turma" class="form-label">Turma</label>
-      <select id="turma" class="form-select" formControlName="turma_id">
-          <option *ngFor="let t of turma" [ngValue]="t.id">{{t.nome}}</option>
-      </select>
-  </div>
-</div>
-<div class="col-md-4 mb-3">
-    <label for="professor" class="form-label">Professor</label>
-    <select id="professor" class="form-select" formControlName="professor_id">
-        <option *ngFor="let p of professor" [ngValue]="p.id">{{p.nome}}</option>
-    </select>
+    <div class="col-md-2 mb-3">
+        <label for="data inicio" class="form-label">Data Inicio</label>
+        <input type="date" class="form-control" id="data inicio" formControlName="data_inicio" placeholder="Data Inicio">
+    </div>
+    <div class="col-md-2 mb-3">
+        <label for="data fim" class="form-label">Data Fim</label>
+        <input type="date" class="form-control" id="data fim" formControlName="data_fim" placeholder="Data Fim">
+    </div>
 </div>
 <div class="modal-footer">
   <button type="submit" class="btn btn-primary" >Salvar</button>

@@ -15,5 +15,10 @@ public interface DisciplinaSkillRepository extends JpaRepository<DisciplinaSkill
     @Query(
         "SELECT ds FROM DisciplinaSkill ds WHERE ds.disciplina.id = :disciplinaId"
     )
-    List<DisciplinaSkill> findByDisciplinaId(Long disciplinaId);
+    List<DisciplinaSkill> getByDisciplinaId(Long disciplinaId);
+
+    @Query(
+        "SELECT ds FROM DisciplinaSkill ds WHERE ds.skill.id = :skillId"
+    )
+    List<DisciplinaSkill> getBySkillId(Long skillId);
 }

@@ -7,4 +7,6 @@ export type Disciplina = {
     turma_nome: string;
     professor_id:number;
     professor_nome:string;
+    data_inicio:string;
+    data_fim:string;
 }

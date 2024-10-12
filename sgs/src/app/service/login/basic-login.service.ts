@@ -30,59 +30,59 @@ export class BasicLoginService implements ILoginService {
     return typeof window !== 'undefined' && typeof sessionStorage !== 'undefined';
   }
 
-  // login(usuario: Usuario): void {
-  //   const credenciaisCodificadas = btoa(usuario.nome_usuario + ':' + usuario.senha);
-  
-  //   const opcoesHttp = {
-  //     headers: new HttpHeaders({
-  //       'Authorization': 'Basic ' + credenciaisCodificadas
-  //     })
-  //   };
-  
-  //   const url = environment.API_URL + '/login';
-  
-  //   if (this.isBrowser()) {
-  //     this.http.get<Usuario>(url, opcoesHttp).subscribe({
-  //       next: (usuario: Usuario) => {
-  //         sessionStorage.setItem('usuario', JSON.stringify(usuario));
-  //         this.usuarioAutenticado.next(usuario);
-  //         this.router.navigate(['/']); // Redireciona após login bem-sucedido
-  //       },
-  //       error: (err) => {
-  //         console.error('Falha no login', err); // Trate o erro aqui
-  //         alert('Usuário ou senha incorretos');
-  //       }
-  //     });
-  //   }
-  // }
-  
-
   login(usuario: Usuario): void {
-    const credenciaisCodificadas = btoa(
-      usuario.nome_usuario + ':' + usuario.senha
-    );
-
+    const credenciaisCodificadas = btoa(usuario.nome_usuario + ':' + usuario.senha);
+  
     const opcoesHttp = {
       headers: new HttpHeaders({
-        'Authorization': 'basic ' + credenciaisCodificadas
+        'Authorization': 'Basic ' + credenciaisCodificadas
       })
     };
-
+  
     const url = environment.API_URL + '/login';
-
-    // Verifica se está no navegador antes de acessar sessionStorage
+  
     if (this.isBrowser()) {
       this.http.get<Usuario>(url, opcoesHttp).subscribe({
         next: (usuario: Usuario) => {
           sessionStorage.setItem('usuario', JSON.stringify(usuario));
           this.usuarioAutenticado.next(usuario);
+          this.router.navigate(['/']); // Redireciona após login bem-sucedido
         },
-        complete: () => {
-          this.router.navigate(['/']);
+        error: (err) => {
+          console.error('Falha no login', err); // Trate o erro aqui
+          alert('Usuário ou senha incorretos');
         }
       });
     }
   }
+  
+
+  // login(usuario: Usuario): void {
+  //   const credenciaisCodificadas = btoa(
+  //     usuario.nome_usuario + ':' + usuario.senha
+  //   );
+
+  //   const opcoesHttp = {
+  //     headers: new HttpHeaders({
+  //       'Authorization': 'basic ' + credenciaisCodificadas
+  //     })
+  //   };
+
+  //   const url = environment.API_URL + '/login';
+
+  //   // Verifica se está no navegador antes de acessar sessionStorage
+  //   if (this.isBrowser()) {
+  //     this.http.get<Usuario>(url, opcoesHttp).subscribe({
+  //       next: (usuario: Usuario) => {
+  //         sessionStorage.setItem('usuario', JSON.stringify(usuario));
+  //         this.usuarioAutenticado.next(usuario);
+  //       },
+  //       complete: () => {
+  //         this.router.navigate(['/']);
+  //       }
+  //     });
+  //   }
+  // }
 
   // logout(): void {
   //   // Verifica se está no navegador antes de limpar sessionStorage

@@ -1,11 +1,11 @@
 INSERT INTO usuario (nome_completo, nome_usuario, senha, papel, ativo) VALUES 
-('Daricelio', 'dari123', '12345', 'COORDENADOR', true),
-('Daniel', 'danzinho123', 'senha', 'PROFESSOR', true),
-('Limeira', 'limoeiro', 'limao', 'PROFESSOR', true),
-('Nasserala', 'macarronada', 'massa', 'PROFESSOR', true),
-('Rodrigo', 'rodrigozinho', 'desing', 'PROFESSOR', true),
-('Catarina', 'catrina', 'artigo', 'PROFESSOR', true),
-('Admin','admin','$2a$10$nRXqZww0wr/jGwxqmFdYEuwWKPb5fMnLtfryw0uRd.gsMA1ujD652','ADMIN',true);
+('Daricelio', 'dari123', '$2a$12$V03BcpEIEafC1RaY.JBClOH7zxwQivzgu1NEAJUT4Wrza8nlXRi.S', 'COORDENADOR', true),
+('Daniel', 'danzinho123', '$2a$12$vKtQzByx.nrmTRMPiDjh0OmDdvk2V..qSpTzhPw0s8SFEwtAxRp5a', 'PROFESSOR', true),
+('Limeira', 'limoeiro', '$2a$12$jMfSl06n45qSGeg94Kf07.KO/sEXOKqxQv/Fu.sCou2/vAvdM/zKO', 'PROFESSOR', true),
+('Nasserala', 'macarronada', '$2a$12$68h2CqQPIgwzKUojx4DbJeYMXX5cn7RpkBuyjqPyzD4UQXYobfwbC', 'PROFESSOR', true),
+('Rodrigo', 'rodrigozinho', '$2a$12$8h/.Qj9uZKMNc4izXE5oU.FKMAVkjBv6kfKYdqtNHDe0JPetTgzkC', 'PROFESSOR', true),
+('Catarina', 'catrina', '$2a$12$LM8KZtSmv.DBZUE46o0DrOapbwn7WscAPWYdS7eMjMmt2/uZdlYGq', 'PROFESSOR', true),
+('Admin','admin','$2a$12$ZDa72F.OQrgP2bA05mtrTecYj/qRvNpXljP2j39b0BTy2tHURSQSi','ADMIN',true);
 
 INSERT INTO coordenador ( nome, email, telefone, usuario_id) VALUES 
 ('Daricelio', 'daricelio@sou.ufac.br', '(68)98756-2547', 1);
@@ -20,51 +20,25 @@ INSERT INTO professor ( nome, email, telefone, usuario_id) VALUES
 INSERT INTO capacitacao ( nome, carga_horaria, data_inicio, data_fim, coordenador_id) VALUES 
 ('Web Academy', 40, '2024-10-01', '2024-12-01', 1);
 
-INSERT INTO turma ( nome, quant_vagas, capacitacao_id) VALUES 
-('Turma 1', 30, 1),
-('Turma 2', 30, 1),
-('Turma 3', 30, 1);
+INSERT INTO turma ( nome, quant_vagas,data_inicio,data_fim, capacitacao_id) VALUES 
+('Turma 1', 30,'2024-10-01', '2024-12-01', 1),
+('Turma 2', 30,'2024-10-01', '2024-12-01', 1),
+('Turma 3', 30,'2024-10-01', '2024-12-01', 1);
 
-INSERT INTO disciplina ( codigo, nome, carga_horaria, turma_id, professor_id) VALUES 
-('D001', 'Topicos Fundamentais', 15, 1, 5),
-('D002', 'Ux e Desing Thinking', 10, 1, 4),
-('D003', 'Fundamentos de Programação Front-End', 20, 1, 2),
-('D004', 'Fundamentos de Programação Back-End', 20, 1, 2),
-('D005', 'Computação em Nuvem', 10, 1, 3),
-('D006', 'Frameworks Front - End', 15, 1, 1),
-('D007', 'Frameworks Back - End', 15, 1, 1),
-('D404', 'Testes', 15, 1, 2),
-('D008', 'Integração Contínua', 10, 1, 1),
-('D009', 'Programação Avançada Front - End', 25, 1, 1),
-('D010', 'Programação Avançada Back - End', 25, 1, 1),
-('D011', 'Tópicos Emergentes em WEB-Mobile', 15, 1, 1),
-('D666', 'Hands On', 105, 1, 1),
-('D001', 'Topicos Fundamentais', 15, 2, 5),
-('D002', 'Ux e Desing Thinking', 10, 2, 4),
-('D003', 'Fundamentos de Programação Front-End', 20, 2, 2),
-('D004', 'Fundamentos de Programação Back-End', 20, 2, 2),
-('D005', 'Computação em Nuvem', 10, 2, 3),
-('D006', 'Frameworks Front - End', 15, 2, 1),
-('D007', 'Frameworks Back - End', 15, 2, 1),
-('D404', 'Testes', 15, 2, 2),
-('D008', 'Integração Contínua', 10, 2, 1),
-('D009', 'Programação Avançada Front - End', 25, 2, 1),
-('D010', 'Programação Avançada Back - End', 25, 2, 1),
-('D011', 'Tópicos Emergentes em WEB-Mobile', 15, 2, 1),
-('D666', 'Hands On', 105, 1, 1),
-('D001', 'Topicos Fundamentais', 15, 3, 5),
-('D002', 'Ux e Desing Thinking', 10, 3, 4),
-('D003', 'Fundamentos de Programação Front-End', 20, 3, 2),
-('D004', 'Fundamentos de Programação Back-End', 20, 3, 2),
-('D005', 'Computação em Nuvem', 10, 3, 3),
-('D006', 'Frameworks Front - End', 15, 3, 1),
-('D007', 'Frameworks Back - End', 15, 3, 1),
-('D404', 'Testes', 15, 3, 2),
-('D008', 'Integração Contínua', 10, 3, 1),
-('D009', 'Programação Avançada Front - End', 25, 3, 1),
-('D010', 'Programação Avançada Back - End', 25, 3, 1),
-('D011', 'Tópicos Emergentes em WEB-Mobile', 15, 3, 1),
-('D666', 'Hands On', 105, 1, 1);
+INSERT INTO disciplina ( codigo, nome, carga_horaria, data_inicio, data_fim) VALUES 
+('D001', 'Topicos Fundamentais', 15,'2024-10-01', '2024-12-01'),
+('D002', 'Ux e Desing Thinking', 10,'2024-10-01', '2024-12-01'),
+('D003', 'Fundamentos de Programação Front-End',20,'2024-10-01', '2024-12-01'),
+('D004', 'Fundamentos de Programação Back-End', 20,'2024-10-01', '2024-12-01'),
+('D005', 'Computação em Nuvem', 10,'2024-10-01', '2024-12-01'),
+('D006', 'Frameworks Front - End', 15,'2024-10-01', '2024-12-01'),
+('D007', 'Frameworks Back - End', 15,'2024-10-01', '2024-12-01'),
+('D404', 'Testes', 15,'2024-10-01', '2024-12-01'),
+('D008', 'Integração Contínua', 10,'2024-10-01', '2024-12-01'),
+('D009', 'Programação Avançada Front - End', 25,'2024-10-01', '2024-12-01'),
+('D010', 'Programação Avançada Back - End', 25,'2024-10-01', '2024-12-01'),
+('D011', 'Tópicos Emergentes em WEB-Mobile', 15,'2024-10-01', '2024-12-01'),
+('D666', 'Hands On', 105,'2024-10-01', '2024-12-01');
 
 INSERT INTO skill ( nome, descricao, tipo) VALUES 
 ( 'Prototipagem de Interfaces', 'Habilidade em criar protótipos de interfaces de usuário', 'HARD_SKILL'),
@@ -98,7 +72,7 @@ INSERT INTO skill ( nome, descricao, tipo) VALUES
 
 
 INSERT INTO aluno (nome, email, telefone,sexo, status) VALUES 
-( 'Allan Victor', 'allan.victor@gmail.com', '(68)98623-2354','M', 'ativo'),
+( 'Allan Victor san', 'allan.victor@gmail.com', '(68)98623-2354','M', 'ativo'),
 ( 'Paulo Guina', 'PaulãoDoAmassa@gmail.com', '(69)66699-6969','M', 'ativo'),
 ( 'Beatriz Souza', 'beatriz.souza@gmail.com', '(68)98234-1234', 'F', 'ativo'),
 ('Carlos Lima', 'carlos.lima@gmail.com', '(68)98765-4321', 'M', 'ativo'),
@@ -188,6 +162,47 @@ INSERT INTO aluno (nome, email, telefone,sexo, status) VALUES
 ('Luana Ferreira', 'luana.ferreira@gmail.com', '(68)98123-7890', 'F', 'ativo'),
 ('Mário Almeida', 'mario.almeida@gmail.com', '(68)98456-6789', 'M', 'ativo'),
 ('Zita Santos', 'zita.santos@gmail.com', '(68)98654-7890', 'F', 'ativo');
+
+INSERT INTO turma_disciplina(turma_id, disciplina_id, professor_id) VALUES
+(1,1,2),
+(1,2,4),
+(1,3,2),
+(1,4,2),
+(1,5,3),
+(1,6,1),
+(1,7,1),
+(1,8,2),
+(1,9,1),
+(1,10,1),
+(1,11,1),
+(1,12,1),
+(1,13,1),
+(2,1,2),
+(2,2,2),
+(2,3,4),
+(2,4,2),
+(2,5,3),
+(2,6,1),
+(2,7,1),
+(2,8,2),
+(2,9,1),
+(2,10,1),
+(2,11,1),
+(2,12,1),
+(2,13,1),
+(3,1,2),
+(3,2,2),
+(3,3,4),
+(3,4,2),
+(3,5,3),
+(3,6,1),
+(3,7,1),
+(3,8,2),
+(3,9,1),
+(3,10,1),
+(3,11,1),
+(3,12,1),
+(3,13,1);
 
 INSERT INTO turma_aluno (turma_id, aluno_id) VALUES
 (1,1),
@@ -398,241 +413,8 @@ INSERT INTO disciplina_skill (disciplina_id, skill_id) VALUES
 (13, 25), -- Hands On / Organização
 (13, 26), -- Hands On / Adaptabilidade
 (13, 27), -- Hands On / Persistência
-(13, 28), -- Hands On / Autogestão
+(13, 28); -- Hands On / Autogestão
 
-(14, 21), -- Tópicos Fundamentais / Resolução de Problemas
-(14, 22), -- Tópicos Fundamentais / Colaboração
-(14, 23), -- Tópicos Fundamentais / Atenção aos Detalhes
-(14, 24), -- Tópicos Fundamentais / Criatividade
-(14, 25), -- Tópicos Fundamentais / Organização
-(14, 26), -- Tópicos Fundamentais / Adaptabilidade
-(14, 27), -- Tópicos Fundamentais / Persistência
-(14, 28), -- Tópicos Fundamentais / Autogestão
-
-(15, 21), -- Ux e Desing Thinking / Resolução de Problemas
-(15, 22), -- Ux e Desing Thinking / Colaboração
-(15, 23), -- Ux e Desing Thinking / Atenção aos Detalhes
-(15, 24), -- Ux e Desing Thinking / Criatividade
-(15, 25), -- Ux e Desing Thinking / Organização
-(15, 26), -- Ux e Desing Thinking / Adaptabilidade
-(15, 27), -- Ux e Desing Thinking / Persistência
-(15, 28), -- Ux e Desing Thinking / Autogestão
-
-(16, 21), -- Fundamentos de Programação Front-End / Resolução de Problemas
-(16, 22), -- Fundamentos de Programação Front-End / Colaboração
-(16, 23), -- Fundamentos de Programação Front-End / Atenção aos Detalhes
-(16, 24), -- Fundamentos de Programação Front-End / Criatividade
-(16, 25), -- Fundamentos de Programação Front-End / Organização
-(16, 26), -- Fundamentos de Programação Front-End / Adaptabilidade
-(16, 27), -- Fundamentos de Programação Front-End / Persistência
-(16, 28), -- Fundamentos de Programação Front-End / Autogestão
-
-(17, 21), -- Fundamentos de Programação Back-End / Resolução de Problemas
-(17, 22), -- Fundamentos de Programação Back-End / Colaboração
-(17, 23), -- Fundamentos de Programação Back-End / Atenção aos Detalhes
-(17, 24), -- Fundamentos de Programação Back-End / Criatividade
-(17, 25), -- Fundamentos de Programação Back-End / Organização
-(17, 26), -- Fundamentos de Programação Back-End / Adaptabilidade
-(17, 27), -- Fundamentos de Programação Back-End / Persistência
-(17, 28), -- Fundamentos de Programação Back-End / Autogestão
-
-(18, 21), -- Computação em Nuvem / Resolução de Problemas
-(18, 22), -- Computação em Nuvem / Colaboração
-(18, 23), -- Computação em Nuvem / Atenção aos Detalhes
-(18, 24), -- Computação em Nuvem / Criatividade
-(18, 25), -- Computação em Nuvem / Organização
-(18, 26), -- Computação em Nuvem / Adaptabilidade
-(18, 27), -- Computação em Nuvem / Persistência
-(18, 28), -- Computação em Nuvem / Autogestão
-
-(19, 21), -- Frameworks Front - End / Resolução de Problemas
-(19, 22), -- Frameworks Front - End / Colaboração
-(19, 23), -- Frameworks Front - End / Atenção aos Detalhes
-(19, 24), -- Frameworks Front - End / Criatividade
-(19, 25), -- Frameworks Front - End / Organização
-(19, 26), -- Frameworks Front - End / Adaptabilidade
-(19, 27), -- Frameworks Front - End / Persistência
-(19, 28), -- Frameworks Front - End / Autogestão
-
-(20, 21), -- Frameworks Back - End / Resolução de Problemas
-(20, 22), -- Frameworks Back - End / Colaboração
-(20, 23), -- Frameworks Back - End / Atenção aos Detalhes
-(20, 24), -- Frameworks Back - End / Criatividade
-(20, 25), -- Frameworks Back - End / Organização
-(20, 26), -- Frameworks Back - End / Adaptabilidade
-(20, 27), -- Frameworks Back - End / Persistência
-(20, 28), -- Frameworks Back - End / Autogestão
-
-(21, 21), -- Testes / Resolução de Problemas
-(21, 22), -- Testes / Colaboração
-(21, 23), -- Testes / Atenção aos Detalhes
-(21, 24), -- Testes / Criatividade
-(21, 25), -- Testes / Organização
-(21, 26), -- Testes / Adaptabilidade
-(21, 27), -- Testes / Persistência
-(21, 28), -- Testes / Autogestão
-
-(22, 21), -- Integração Contínua / Resolução de Problemas
-(22, 22), -- Integração Contínua / Colaboração
-(22, 23), -- Integração Contínua / Atenção aos Detalhes
-(22, 24), -- Integração Contínua / Criatividade
-(22, 25), -- Integração Contínua / Organização
-(22, 26), -- Integração Contínua / Adaptabilidade
-(22, 27), -- Integração Contínua / Persistência
-(22, 28), -- Integração Contínua / Autogestão
-
-(23, 21), -- Programação Avançada Front - End / Resolução de Problemas
-(23, 22), -- Programação Avançada Front - End / Colaboração
-(23, 23), -- Programação Avançada Front - End / Atenção aos Detalhes
-(23, 24), -- Programação Avançada Front - End / Criatividade
-(23, 25), -- Programação Avançada Front - End / Organização
-(23, 26), -- Programação Avançada Front - End / Adaptabilidade
-(23, 27), -- Programação Avançada Front - End / Persistência
-(23, 28), -- Programação Avançada Front - End / Autogestão
-
-(24, 21), -- Programação Avançada Back - End / Resolução de Problemas
-(24, 22), -- Programação Avançada Back - End / Colaboração
-(24, 23), -- Programação Avançada Back - End / Atenção aos Detalhes
-(24, 24), -- Programação Avançada Back - End / Criatividade
-(24, 25), -- Programação Avançada Back - End / Organização
-(24, 26), -- Programação Avançada Back - End / Adaptabilidade
-(24, 27), -- Programação Avançada Back - End / Persistência
-(24, 28), -- Programação Avançada Back - End / Autogestão
-
-(25, 21), -- Tópicos Emergentes em WEB-Mobile / Resolução de Problemas
-(25, 22), -- Tópicos Emergentes em WEB-Mobile / Colaboração
-(25, 23), -- Tópicos Emergentes em WEB-Mobile / Atenção aos Detalhes
-(25, 24), -- Tópicos Emergentes em WEB-Mobile / Criatividade
-(25, 25), -- Tópicos Emergentes em WEB-Mobile / Organização
-(25, 26), -- Tópicos Emergentes em WEB-Mobile / Adaptabilidade
-(25, 27), -- Tópicos Emergentes em WEB-Mobile / Persistência
-(25, 28), -- Tópicos Emergentes em WEB-Mobile / Autogestão
-
-(26, 21), -- Hands On / Resolução de Problemas
-(26, 22), -- Hands On / Colaboração
-(26, 23), -- Hands On / Atenção aos Detalhes
-(26, 24), -- Hands On / Criatividade
-(26, 25), -- Hands On / Organização
-(26, 26), -- Hands On / Adaptabilidade
-(26, 27), -- Hands On / Persistência
-(26, 28), -- Hands On / Autogestão
-
-(27, 21), -- Tópicos Fundamentais / Resolução de Problemas
-(27, 22), -- Tópicos Fundamentais / Colaboração
-(27, 23), -- Tópicos Fundamentais / Atenção aos Detalhes
-(27, 24), -- Tópicos Fundamentais / Criatividade
-(27, 25), -- Tópicos Fundamentais / Organização
-(27, 26), -- Tópicos Fundamentais / Adaptabilidade
-(27, 27), -- Tópicos Fundamentais / Persistência
-(27, 28), -- Tópicos Fundamentais / Autogestão
-
-(28, 21), -- Ux e Desing Thinking / Resolução de Problemas
-(28, 22), -- Ux e Desing Thinking / Colaboração
-(28, 23), -- Ux e Desing Thinking / Atenção aos Detalhes
-(28, 24), -- Ux e Desing Thinking / Criatividade
-(28, 25), -- Ux e Desing Thinking / Organização
-(28, 26), -- Ux e Desing Thinking / Adaptabilidade
-(28, 27), -- Ux e Desing Thinking / Persistência
-(28, 28), -- Ux e Desing Thinking / Autogestão
-
-(29, 21), -- Fundamentos de Programação Front-End / Resolução de Problemas
-(29, 22), -- Fundamentos de Programação Front-End / Colaboração
-(29, 23), -- Fundamentos de Programação Front-End / Atenção aos Detalhes
-(29, 24), -- Fundamentos de Programação Front-End / Criatividade
-(29, 25), -- Fundamentos de Programação Front-End / Organização
-(29, 26), -- Fundamentos de Programação Front-End / Adaptabilidade
-(29, 27), -- Fundamentos de Programação Front-End / Persistência
-(29, 28), -- Fundamentos de Programação Front-End / Autogestão
-
-(30, 21), -- Fundamentos de Programação Back-End / Resolução de Problemas
-(30, 22), -- Fundamentos de Programação Back-End / Colaboração
-(30, 23), -- Fundamentos de Programação Back-End / Atenção aos Detalhes
-(30, 24), -- Fundamentos de Programação Back-End / Criatividade
-(30, 25), -- Fundamentos de Programação Back-End / Organização
-(30, 26), -- Fundamentos de Programação Back-End / Adaptabilidade
-(30, 27), -- Fundamentos de Programação Back-End / Persistência
-(30, 28), -- Fundamentos de Programação Back-End / Autogestão
-
-(31, 21), -- Computação em Nuvem / Resolução de Problemas
-(31, 22), -- Computação em Nuvem / Colaboração
-(31, 23), -- Computação em Nuvem / Atenção aos Detalhes
-(31, 24), -- Computação em Nuvem / Criatividade
-(31, 25), -- Computação em Nuvem / Organização
-(31, 26), -- Computação em Nuvem / Adaptabilidade
-(31, 27), -- Computação em Nuvem / Persistência
-(31, 28), -- Computação em Nuvem / Autogestão
-
-(32, 21), -- Frameworks Front - End / Resolução de Problemas
-(32, 22), -- Frameworks Front - End / Colaboração
-(32, 23), -- Frameworks Front - End / Atenção aos Detalhes
-(32, 24), -- Frameworks Front - End / Criatividade
-(32, 25), -- Frameworks Front - End / Organização
-(32, 26), -- Frameworks Front - End / Adaptabilidade
-(32, 27), -- Frameworks Front - End / Persistência
-(32, 28), -- Frameworks Front - End / Autogestão
-
-(33, 21), -- Frameworks Back - End / Resolução de Problemas
-(33, 22), -- Frameworks Back - End / Colaboração
-(33, 23), -- Frameworks Back - End / Atenção aos Detalhes
-(33, 24), -- Frameworks Back - End / Criatividade
-(33, 25), -- Frameworks Back - End / Organização
-(33, 26), -- Frameworks Back - End / Adaptabilidade
-(33, 27), -- Frameworks Back - End / Persistência
-(33, 28), -- Frameworks Back - End / Autogestão
-
-(34, 21), -- Testes / Resolução de Problemas
-(34, 22), -- Testes / Colaboração
-(34, 23), -- Testes / Atenção aos Detalhes
-(34, 24), -- Testes / Criatividade
-(34, 25), -- Testes / Organização
-(34, 26), -- Testes / Adaptabilidade
-(34, 27), -- Testes / Persistência
-(34, 28), -- Testes / Autogestão
-
-(35, 21), -- Integração Contínua / Resolução de Problemas
-(35, 22), -- Integração Contínua / Colaboração
-(35, 23), -- Integração Contínua / Atenção aos Detalhes
-(35, 24), -- Integração Contínua / Criatividade
-(35, 25), -- Integração Contínua / Organização
-(35, 26), -- Integração Contínua / Adaptabilidade
-(35, 27), -- Integração Contínua / Persistência
-(35, 28), -- Integração Contínua / Autogestão
-
-(36, 21), -- Programação Avançada Front - End / Resolução de Problemas
-(36, 22), -- Programação Avançada Front - End / Colaboração
-(36, 23), -- Programação Avançada Front - End / Atenção aos Detalhes
-(36, 24), -- Programação Avançada Front - End / Criatividade
-(36, 25), -- Programação Avançada Front - End / Organização
-(36, 26), -- Programação Avançada Front - End / Adaptabilidade
-(36, 27), -- Programação Avançada Front - End / Persistência
-(36, 28), -- Programação Avançada Front - End / Autogestão
-
-(37, 21), -- Programação Avançada Back - End / Resolução de Problemas
-(37, 22), -- Programação Avançada Back - End / Colaboração
-(37, 23), -- Programação Avançada Back - End / Atenção aos Detalhes
-(37, 24), -- Programação Avançada Back - End / Criatividade
-(37, 25), -- Programação Avançada Back - End / Organização
-(37, 26), -- Programação Avançada Back - End / Adaptabilidade
-(37, 27), -- Programação Avançada Back - End / Persistência
-(37, 28), -- Programação Avançada Back - End / Autogestão
-
-(38, 21), -- Tópicos Emergentes em WEB-Mobile / Resolução de Problemas
-(38, 22), -- Tópicos Emergentes em WEB-Mobile / Colaboração
-(38, 23), -- Tópicos Emergentes em WEB-Mobile / Atenção aos Detalhes
-(38, 24), -- Tópicos Emergentes em WEB-Mobile / Criatividade
-(38, 25), -- Tópicos Emergentes em WEB-Mobile / Organização
-(38, 26), -- Tópicos Emergentes em WEB-Mobile / Adaptabilidade
-(38, 27), -- Tópicos Emergentes em WEB-Mobile / Persistência
-(38, 28), -- Tópicos Emergentes em WEB-Mobile / Autogestão
-
-(39, 21), -- Hands On / Resolução de Problemas
-(39, 22), -- Hands On / Colaboração
-(39, 23), -- Hands On / Atenção aos Detalhes
-(39, 24), -- Hands On / Criatividade
-(39, 25), -- Hands On / Organização
-(39, 26), -- Hands On / Adaptabilidade
-(39, 27), -- Hands On / Persistência
-(39, 28); -- Hands On / Autogestão
 
 -- Ligação entre as disciplinas e hard skills específicas
 INSERT INTO disciplina_skill (disciplina_id, skill_id) VALUES
@@ -668,77 +450,10 @@ INSERT INTO disciplina_skill (disciplina_id, skill_id) VALUES
 
 (13, 19), -- Hands On / DevOps
 (13, 9),  -- Hands On / AWS
-(13, 10), -- Hands On / Docker
-
-(15, 1), -- Ux e Desing Thinking / Prototipagem de Interfaces
-(15, 2), -- Ux e Desing Thinking / Arquitetura de Informação
-
-(16, 3), -- Fundamentos de Programação Front-End / HTML e CSS
-(16, 4), -- Fundamentos de Programação Front-End / JavaScript
-
-(17, 6), -- Fundamentos de Programação Back-End / Java
-(17, 7), -- Fundamentos de Programação Back-End / Node.js
-
-(18, 9), -- Computação em Nuvem / AWS
-(18, 10), -- Computação em Nuvem / Docker
-
-(19, 11), -- Frameworks Front-End / React
-(19, 12), -- Frameworks Front-End / Angular
-
-(20, 13), -- Frameworks Back-End / Spring Boot
-
-(21, 14), -- Testes / Testes Unitários
-(21, 15), -- Testes / Automação de Testes
-
-(22, 16), -- Integração Contínua / CI/CD
-
-(23, 4), -- Programação Avançada Front-End / JavaScript
-(23, 17), -- Programação Avançada Front-End / TypeScript
-
-(24, 7), -- Programação Avançada Back-End / Node.js
-(24, 6), -- Programação Avançada Back-End / Java
-
-(25, 18), -- Tópicos Emergentes em WEB-Mobile / Progressive Web Apps
-
-(26, 19), -- Hands On / DevOps
-(26, 9),  -- Hands On / AWS
-(26, 10), -- Hands On / Docker
-
-(28, 1), -- Ux e Desing Thinking / Prototipagem de Interfaces
-(28, 2), -- Ux e Desing Thinking / Arquitetura de Informação
-
-(29, 3), -- Fundamentos de Programação Front-End / HTML e CSS
-(29, 4), -- Fundamentos de Programação Front-End / JavaScript
-
-(30, 6), -- Fundamentos de Programação Back-End / Java
-(30, 7), -- Fundamentos de Programação Back-End / Node.js
-
-(31, 9), -- Computação em Nuvem / AWS
-(31, 10), -- Computação em Nuvem / Docker
-
-(32, 11), -- Frameworks Front-End / React
-(32, 12), -- Frameworks Front-End / Angular
-
-(33, 13), -- Frameworks Back-End / Spring Boot
-
-(34, 14), -- Testes / Testes Unitários
-(34, 15), -- Testes / Automação de Testes
-
-(35, 16), -- Integração Contínua / CI/CD
-
-(36, 4), -- Programação Avançada Front-End / JavaScript
-(36, 17), -- Programação Avançada Front-End / TypeScript
-
-(37, 7), -- Programação Avançada Back-End / Node.js
-(37, 6), -- Programação Avançada Back-End / Java
-
-(38, 18), -- Tópicos Emergentes em WEB-Mobile / Progressive Web Apps
-
-(39, 19), -- Hands On / DevOps
-(39, 9),  -- Hands On / AWS
-(39, 10); -- Hands On / Docker
+(13, 10); -- Hands On / Docker
 
 
+ 
 
 
 

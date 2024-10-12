@@ -10,6 +10,12 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class JwtLoginService implements ILoginService {
+  getToken(): string | null {
+    if (this.isBrowser()) {
+      return sessionStorage.getItem('token');
+    }
+    return null;
+  }
 
   constructor() {
     // Verifica se está no lado do cliente (navegador) antes de acessar sessionStorage

@@ -1,13 +1,13 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { IList } from '../i-list';
-import { Aluno } from '../../model/aluno';
-import { RequisicaoPaginada } from '../../model/requisicao-paginada';
-import { RespostaPaginada } from '../../model/resposta-paginada';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AlunoService } from '../../service/aluno.service';
-import { DisciplinaService } from '../../service/disciplina.service'; // Importa o DisciplinaService
 import { RouterLink } from '@angular/router';
+
+import { AlunoSkillService } from '../../service/aluno-skill.service';
+import { SkillService } from '../../service/skill.service';
+import { AlunoSkill } from '../../model/alunoskill';
+import { RequisicaoPaginada } from '../../model/requisicao-paginada';
+import { RespostaPaginada } from '../../model/resposta-paginada';
 
 @Component({
   selector: 'app-ranking-list',
@@ -16,17 +16,15 @@ import { RouterLink } from '@angular/router';
   templateUrl: './ranking-list.component.html',
   styleUrls: ['./ranking-list.component.css']
 })
-export class RankingListComponent implements IList<Aluno>, OnInit {
-  registros: Aluno[] = []; // Lista de alunos com notas
-  disciplinas: any[] = []; // Lista de disciplinas para seleção
-  disciplinaSelecionada: string = ''; // ID da disciplina selecionada
-  respostaPaginada: RespostaPaginada<Aluno> = {} as RespostaPaginada<Aluno>;
+export class RankingListComponent implements OnInit {
+  registros: AlunoSkill[] = [];
+  skills: any[] = [];
+  skillSelecionada: string = '';
   requsicaoPaginada: RequisicaoPaginada = new RequisicaoPaginada();
-  termoBusca: string | undefined = '';
 
   constructor(
-    private servico: AlunoService, 
-    private disciplinaService: DisciplinaService, // Adiciona o serviço de disciplinas
+    private alunoSkillService: AlunoSkillService, 
+    private skillService: SkillService,
     @Inject(PLATFORM_ID) private plataformaId: Object
   ) {}
 
@@ -38,61 +36,42 @@ export class RankingListComponent implements IList<Aluno>, OnInit {
       this.requsicaoPaginada.size = 5;
     }
 
-    // Carrega as disciplinas ao iniciar o componente
-    this.loadDisciplinas();
+    // Carrega as skills ao iniciar o componente
+    this.loadSkills();
   }
 
-  // Método para carregar todas as disciplinas
-  loadDisciplinas(): void {
-    this.disciplinaService.get().subscribe({
+  // Carrega todas as skills
+  loadSkills(): void {
+    this.skillService.get().subscribe({
       next: (resposta) => {
-        this.disciplinas = resposta.content; // Ajusta para responder corretamente
+        this.skills = resposta.content;
       },
       error: (err) => {
-        console.error('Erro ao carregar as disciplinas:', err);
+        console.error('Erro ao carregar as skills:', err);
       }
     });
   }
 
-  // Método chamado ao selecionar uma disciplina
-  onDisciplinaChange(): void {
-    // Chama o método para buscar alunos que concluíram a disciplina selecionada
-    if (this.disciplinaSelecionada) {
-      // this.getAlunosByDisciplina(this.disciplinaSelecionada);
+  // Método chamado ao selecionar uma skill
+  onSkillChange(): void {
+    if (this.skillSelecionada) {
+      this.getAlunosBySkill(this.skillSelecionada);
     }
   }
 
-  // // Buscar alunos que concluíram a disciplina selecionada
-  // getAlunosByDisciplina(disciplinaId: string): void {
-  //   this.servico.getAlunosByDisciplina(disciplinaId, this.requsicaoPaginada).subscribe({
-  //     next: (resposta: RespostaPaginada<Aluno>) => {
-  //       // Assumindo que o campo 'nota' é parte do objeto 'Aluno'
-  //       this.registros = resposta.content;
-  //       this.respostaPaginada = resposta;
-  //     },
-  //     error: (err: any) => {
-  //       console.error('Erro ao carregar os alunos:', err);
-  //     }
-  //   });
-  // }
+  // Buscar alunos por skill selecionada e ordenar por nota
+  getAlunosBySkill(skillId: string): void {
+    // Ajuste a requisição paginada para ordenar por nota de forma decrescente
+    this.requsicaoPaginada.sort = ['nota_final,desc'];
 
-  get(termoBusca?: string): void {
-    this.termoBusca = termoBusca;
-    this.servico.get(termoBusca, this.requsicaoPaginada).subscribe({
-      next:(resposta: RespostaPaginada<Aluno>) =>{
-        this.registros = resposta.content;
-        this.respostaPaginada = resposta;
+    this.alunoSkillService.get(skillId, this.requsicaoPaginada).subscribe({
+      next: (resposta: RespostaPaginada<AlunoSkill>) => {
+        // Ordena os alunos pela nota_final de forma decrescente
+        this.registros = resposta.content.sort((a, b) => (b.nota_final || 0) - (a.nota_final || 0));
+      },
+      error: (err: any) => {
+        console.error('Erro ao carregar os alunos por skill:', err);
       }
     });
-  }
-  delete(id: number): void {
-    this.servico.delete(id).subscribe({
-      next: () => {
-        this.registros = this.registros.filter(item => item.id !== id);
-      },
-      error: (err) => {
-        console.error('Erro ao excluir o Aluno:', err);
-      }
-  });
   }
 }

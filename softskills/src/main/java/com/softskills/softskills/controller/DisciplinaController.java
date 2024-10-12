@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.softskills.softskills.controller.dto.DisciplinaDto;
-import com.softskills.softskills.controller.mapper.DisciplinaMapper;
 import com.softskills.softskills.model.Disciplina;
 import com.softskills.softskills.service.DisciplinaService;
 
@@ -26,22 +24,18 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/disciplina", produces = MediaType.APPLICATION_JSON_VALUE)
-public class DisciplinaController implements IController<DisciplinaDto>{
+public class DisciplinaController implements IController<Disciplina>{
 
     
     private final DisciplinaService servico;
-    private final DisciplinaMapper mapper;
-
     public DisciplinaController(
-        DisciplinaService servico,
-        DisciplinaMapper mapper) {
+        DisciplinaService servico) {
         this.servico = servico;
-        this.mapper = mapper;
     }
 
     @Override
     @GetMapping("/")
-    public ResponseEntity<Page<DisciplinaDto>> get(
+    public ResponseEntity<Page<Disciplina>> get(
         @RequestParam(required = false) String termoBusca,
         @RequestParam(required = false, defaultValue = "false") boolean unpaged,
         @SortDefault.SortDefaults({
@@ -50,37 +44,31 @@ public class DisciplinaController implements IController<DisciplinaDto>{
         // @ParameterObject       Adicionar após adicionar springdoc nas dependencias 
         Pageable page) {
         Page<Disciplina> registros = servico.get(termoBusca, page);
-        Page<DisciplinaDto> dtos = registros.map(mapper::toDto);
-        return ResponseEntity.ok(dtos);
+        return ResponseEntity.ok(registros);
     }
 
     @Override
     @GetMapping("/{id}")
-    public ResponseEntity<DisciplinaDto> get(@PathVariable("id") Long id) {
+    public ResponseEntity<Disciplina> get(@PathVariable("id") Long id) {
         Disciplina registro = servico.get(id);
         if (registro == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
-        DisciplinaDto dto = mapper.toDto(registro);
-        return ResponseEntity.ok(dto);
+        return ResponseEntity.ok(registro);
     }
 
     @Override
     @PostMapping("/")
-    public ResponseEntity<DisciplinaDto> insert(@RequestBody @Valid DisciplinaDto objeto) {
-        Disciplina objetoConvertido = mapper.toEntity(objeto);
-        Disciplina registro = servico.save(objetoConvertido);
-        DisciplinaDto dto = mapper.toDto(registro);
-        return ResponseEntity.status(HttpStatus.CREATED).body(dto);
+    public ResponseEntity<Disciplina> insert(@RequestBody @Valid Disciplina objeto) {
+        Disciplina registro = servico.save(objeto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(registro);
     }
 
     @Override
     @PutMapping("/")
-    public ResponseEntity<DisciplinaDto> update(@RequestBody @Valid DisciplinaDto objeto) {
-        Disciplina objetoConvertido = mapper.toEntity(objeto);
-        Disciplina registro = servico.save(objetoConvertido);
-        DisciplinaDto dto = mapper.toDto(registro);
-        return ResponseEntity.ok(dto);
+    public ResponseEntity<Disciplina> update(@RequestBody @Valid Disciplina objeto) {
+        Disciplina registro = servico.save(objeto);
+        return ResponseEntity.ok(registro);
     }
 
     @Override

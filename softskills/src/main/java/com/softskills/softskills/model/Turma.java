@@ -1,5 +1,7 @@
 package com.softskills.softskills.model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,6 +22,12 @@ public class Turma {
 
     @Column(nullable = true)
     private Integer quant_vagas;
+
+    @Column(nullable = true)
+    private LocalDate data_inicio;
+
+    @Column(nullable = true)
+    private LocalDate data_fim;
 
     @ManyToOne
     private Capacitacao capacitacao;
@@ -55,4 +63,22 @@ public class Turma {
     public void setCapacitacao(Capacitacao capacitacao) {
         this.capacitacao = capacitacao;
     }
+
+    public LocalDate getData_inicio() {
+        return data_inicio;
+    }
+
+    public void setData_inicio(LocalDate data_inicio) {
+        this.data_inicio = data_inicio;
+    }
+
+    public LocalDate getData_fim() {
+        return data_fim;
+    }
+
+    public void setData_fim(LocalDate data_fim) {
+        this.data_fim = data_fim;
+    }
+
+    
 }

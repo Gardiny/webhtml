@@ -56,4 +56,15 @@ export class ProfessorListComponent implements IList<Professor>, OnInit {
       }
     });
   }
+  irParaPagina(pagina: number): void {
+    if (pagina >= 0 && pagina < this.respostaPaginada.totalPages) {
+      this.requisicaoPaginada.page = pagina;
+      this.get(this.termoBusca);
+    }
+  }
+
+  // Gera o array de números de páginas para exibir no paginador
+  paginas(): number[] {
+    return Array(this.respostaPaginada.totalPages).fill(0).map((x, i) => i);
+  }
 }

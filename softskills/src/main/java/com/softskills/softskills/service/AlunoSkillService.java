@@ -16,12 +16,14 @@ import com.softskills.softskills.model.Disciplina;
 import com.softskills.softskills.model.DisciplinaSkill;
 import com.softskills.softskills.model.Skill;
 import com.softskills.softskills.model.TurmaAluno;
+import com.softskills.softskills.model.TurmaDisciplina;
 import com.softskills.softskills.repository.AlunoRepository;
 import com.softskills.softskills.repository.AlunoSkillRepository;
 import com.softskills.softskills.repository.DisciplinaRepository;
 import com.softskills.softskills.repository.DisciplinaSkillRepository;
 import com.softskills.softskills.repository.SkillRepository;
 import com.softskills.softskills.repository.TurmaAlunoRepository;
+import com.softskills.softskills.repository.TurmaDisciplinaRepository;
 
 @Service
 public class AlunoSkillService {
@@ -31,7 +33,7 @@ public class AlunoSkillService {
     private final SkillRepository skillRepo;
     private final TurmaAlunoRepository turmaAlunoRepo;
     private final DisciplinaSkillRepository discSkillRepo;
-    private final DisciplinaRepository discRepo;
+    private final TurmaDisciplinaRepository turmDiscRepo;
 
     public AlunoSkillService (
         AlunoSkillRepository repo,
@@ -39,13 +41,13 @@ public class AlunoSkillService {
         SkillRepository skillRepo,
         TurmaAlunoRepository turmaAlunoRepo,
         DisciplinaSkillRepository discSkillRepo,
-        DisciplinaRepository discRepo){
+        TurmaDisciplinaRepository turmDiscRepo){
         this.repo = repo;
         this.alunoRepo = alunoRepo;
         this.skillRepo = skillRepo;
         this.turmaAlunoRepo = turmaAlunoRepo;
         this.discSkillRepo = discSkillRepo;
-        this.discRepo = discRepo;
+        this.turmDiscRepo = turmDiscRepo;
     }
 
     public Page<AlunoSkill> get(Pageable page){
@@ -56,8 +58,12 @@ public class AlunoSkillService {
         return repo.findById(id).orElse(null);
     }
 
-    public List<AlunoSkill> get(Long id){
+    public List<AlunoSkill> getByAluno(Long id){
         return repo.findByAluno(id);
+    }
+
+    public List<AlunoSkill> getBySkill(Long id){
+        return repo.findBySkill(id);
     }
 
     public AlunoSkill save(AlunoSkillDto dto) {
@@ -76,9 +82,10 @@ public class AlunoSkillService {
     }
 
     public void preencher(Long turmaId, Long alunoId){
-        List<Disciplina> disciplinas = discRepo.findByTurmaId(turmaId);
-            for (Disciplina disciplina : disciplinas){
-                List<DisciplinaSkill> skills = discSkillRepo.findByDisciplinaId(disciplina.getId());
+        // List<Disciplina> disciplinas = discRepo.findByTurmaId(turmaId);
+            List<TurmaDisciplina> turmaDisciplina = turmDiscRepo.getByTurma(turmaId);
+            for (TurmaDisciplina disciplina : turmaDisciplina){
+                List<DisciplinaSkill> skills = discSkillRepo.getByDisciplinaId(disciplina.getDisciplina().getId());
                 for (DisciplinaSkill skill : skills){
                     AlunoSkill existe = repo.findByIds(alunoId,skill.getSkill().getId());
                     if(existe == null){
@@ -98,9 +105,9 @@ public class AlunoSkillService {
         for (TurmaAluno turmaAluno : turmaAlunos) {
             Long turmaId = turmaAluno.getTurma().getId();
             Long alunoId = turmaAluno.getAluno().getId();
-            List<Disciplina> disciplinas = discRepo.findByTurmaId(turmaId);
-            for (Disciplina disciplina : disciplinas){
-                List<DisciplinaSkill> skills = discSkillRepo.findByDisciplinaId(disciplina.getId());
+            List<TurmaDisciplina> turmaDisciplina = turmDiscRepo.getByTurma(turmaId);
+            for (TurmaDisciplina disciplina : turmaDisciplina){
+                List<DisciplinaSkill> skills = discSkillRepo.getByDisciplinaId(disciplina.getDisciplina().getId());
                 for (DisciplinaSkill skill : skills){
                     AlunoSkill existe = repo.findByIds(alunoId,skill.getSkill().getId());
                     if(existe == null){
