@@ -1,5 +1,5 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
-import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AlunoListComponent } from './components/aluno-list/aluno-list.component';
 import { ProfessorListComponent } from './components/professor-list/professor-list.component';
@@ -20,6 +20,7 @@ import { TurmaService } from './service/turma.service';
 import { AlertaComponent } from "./components/alerta/alerta/alerta.component";
 import { ILoginService, LoginService } from './service/login/i-login.service';
 import { Usuario } from './model/usuario';
+import { AlunoFormComponent } from './components/aluno-form/aluno-form.component';
 
 @Component({
   selector: 'app-root',
@@ -38,7 +39,7 @@ import { Usuario } from './model/usuario';
     TurmaFormComponent,
     DisciplinaFormComponent,
     SkillFormComponent,
-    AlertaComponent,
+    AlertaComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
@@ -46,19 +47,19 @@ import { Usuario } from './model/usuario';
 export class AppComponent {
   title = 'teste';
   usuario: Usuario = <Usuario>{};
-  registros: Aluno[] = [];
-  registros2: Turma[] = [];
-  respostaPaginada: RespostaPaginada<Aluno> = {} as RespostaPaginada<Aluno>;
-  requsicaoPaginada: RequisicaoPaginada = new RequisicaoPaginada();
-  respostaPaginadaTurma: RespostaPaginada<Turma> = {} as RespostaPaginada<Turma>;
-  requsicaoPaginadaTurma: RequisicaoPaginada = new RequisicaoPaginada();
-  termoBusca: string | undefined = '';
+  // registros: Aluno[] = [];
+  // registros2: Turma[] = [];
+  // respostaPaginada: RespostaPaginada<Aluno> = {} as RespostaPaginada<Aluno>;
+  // requsicaoPaginada: RequisicaoPaginada = new RequisicaoPaginada();
+  // respostaPaginadaTurma: RespostaPaginada<Turma> = {} as RespostaPaginada<Turma>;
+  // requsicaoPaginadaTurma: RequisicaoPaginada = new RequisicaoPaginada();
+  // termoBusca: string | undefined = '';
 
-  totalAlunos: number = 0;
-  alunosAtivos: number = 0;
-  alunosConcluidos: number = 0;
-  alunosDesistentes: number = 0;
-  totalTurmas:number = 0;
+  // totalAlunos: number = 0;
+  // alunosAtivos: number = 0;
+  // alunosConcluidos: number = 0;
+  // alunosDesistentes: number = 0;
+  // totalTurmas:number = 0;
 
   constructor(
     private router: Router, 
@@ -72,44 +73,44 @@ export class AppComponent {
       }
     });
   }
-  ngOnInit(): void {
-    if (isPlatformBrowser(this.plataformaId)) {
-      this.requsicaoPaginada.size = parseInt(localStorage.getItem('tamanhoPagina') || '5');
-    } else {
-      this.requsicaoPaginada.size = 5;
-    }
-    this.getAluno();
-    this.getTurma();
-  }
+  // ngOnInit(): void {
+  //   if (isPlatformBrowser(this.plataformaId)) {
+  //     this.requsicaoPaginada.size = parseInt(localStorage.getItem('tamanhoPagina') || '5');
+  //   } else {
+  //     this.requsicaoPaginada.size = 5;
+  //   }
+  //   this.getAluno();
+  //   this.getTurma();
+  // }
 
-  getAluno(termoBusca?: string): void {
-    this.termoBusca = termoBusca;
-    this.servico.get(termoBusca, this.requsicaoPaginada).subscribe({
-      next: (resposta: RespostaPaginada<Aluno>) => {
-        this.registros = resposta.content;
-        this.respostaPaginada = resposta;
-        this.contar();  // Chama a função para contar alunos
-      }
-    });
-  }
-  getTurma(termoBusca?: string): void {
-    this.termoBusca = termoBusca;
-    this.servicoTurma.get(termoBusca, this.requsicaoPaginadaTurma).subscribe({
-      next: (resposta: RespostaPaginada<Turma>) => {
-        this.registros2 = resposta.content;
-        this.respostaPaginadaTurma = resposta;
-      }
-    });
-    this.contar()
-  }
+  // getAluno(termoBusca?: string): void {
+  //   this.termoBusca = termoBusca;
+  //   this.servico.get(termoBusca, this.requsicaoPaginada).subscribe({
+  //     next: (resposta: RespostaPaginada<Aluno>) => {
+  //       this.registros = resposta.content;
+  //       this.respostaPaginada = resposta;
+  //       this.contar();  // Chama a função para contar alunos
+  //     }
+  //   });
+  // }
+  // getTurma(termoBusca?: string): void {
+  //   this.termoBusca = termoBusca;
+  //   this.servicoTurma.get(termoBusca, this.requsicaoPaginadaTurma).subscribe({
+  //     next: (resposta: RespostaPaginada<Turma>) => {
+  //       this.registros2 = resposta.content;
+  //       this.respostaPaginadaTurma = resposta;
+  //     }
+  //   });
+  //   this.contar()
+  // }
 
-  contar(): void {
-    this.totalAlunos = this.registros.length;
-    this.totalTurmas = this.registros2.length
-    this.alunosAtivos = this.registros.filter(aluno => aluno.status === 'ATIVO').length;
-    this.alunosConcluidos = this.registros.filter(aluno => aluno.status === 'CONCLUIDO').length;
-    this.alunosDesistentes = this.registros.filter(aluno => aluno.status === 'DESISTENTE').length;
-  }
+  // contar(): void {
+  //   this.totalAlunos = this.registros.length;
+  //   this.totalTurmas = this.registros2.length
+  //   this.alunosAtivos = this.registros.filter(aluno => aluno.status === 'ATIVO').length;
+  //   this.alunosConcluidos = this.registros.filter(aluno => aluno.status === 'CONCLUIDO').length;
+  //   this.alunosDesistentes = this.registros.filter(aluno => aluno.status === 'DESISTENTE').length;
+  // }
 
   navigateTo(route: string) {
     this.router.navigate([route]);

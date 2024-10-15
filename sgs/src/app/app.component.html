@@ -23,6 +23,7 @@
             placeholder="Pesquisar"
             aria-label="Pesquisar"
             aria-describedby="btnNavbarSearch"
+            *ngIf="isLoggendIn()" 
           />
           <!--<button class="btn btn-primary" id="btnNavbarSearch" type="button">
             <i class="fas fa-search"></i>
@@ -39,6 +40,7 @@
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
+            *ngIf="isLoggendIn()"
             ><i class="fas fa-user fa-fw"></i
           ></a>
           <ul
@@ -55,7 +57,7 @@
     </nav>
     <div id="layoutSidenav">
       <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion" *ngIf="isLoggendIn()" >
           <div class="sb-sidenav-menu">
             <div class="nav">
               <div class="sb-sidenav-menu-heading"></div>
@@ -172,7 +174,7 @@
             <ol class="breadcrumb mb-4">
               <li class="breadcrumb-item active"></li>
             </ol>
-            <div class="row" id="cards">
+            <!-- <div class="row" id="cards" *ngIf="isLoggendIn()">
               <div class="col-xl-2 col-md-6">
                 <div class="card bg-danger text-white mb-4">
                   <div class="card-body">Total de Alunos </div>
@@ -198,9 +200,9 @@
                     <div class="text-center">{{alunosConcluidos}}</div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="col-xl-2 col-md-6">
+              <!-- <div class="col-xl-2 col-md-6">
                 <div class="card bg-warning text-white mb-2">
                   <div class="card-body">Turmas</div>
                   <div class="card-footer d-flex align-items-center justify-content-center">
@@ -217,11 +219,12 @@
                 </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
-            <div class="card mb-4">
-              <router-outlet></router-outlet>
-
+            <router-outlet></router-outlet>
+            <div class="card mb-4" *ngIf="isLoggendIn()">
+             
+              
 
               <!--Inicio Modal Usuário-->
               <div class="modal fade" id="usuarioModal" tabindex="-1" aria-labelledby="usuarioModalLabel" aria-hidden="true">
@@ -262,7 +265,7 @@
                                     </label>
                                 </div>
                             </form> -->
-                            <app-usuario-form></app-usuario-form>
+                            <!-- <app-usuario-form></app-usuario-form> -->
                         </div>
                     </div>
                 </div>
@@ -294,7 +297,7 @@
                                 </div>
 
                             </form> -->
-                            <app-turma-form></app-turma-form>
+                            <!-- <app-turma-form></app-turma-form> -->
                         </div>
                     </div>
                 </div>
@@ -343,7 +346,7 @@
                             </div>
 
                             </form> -->
-                          <app-disciplinas-form></app-disciplinas-form>
+                          <!-- <app-disciplinas-form></app-disciplinas-form> -->
                         </div>
                     </div>
                 </div>
@@ -379,7 +382,7 @@
                           </div>
 
                           </form> -->
-                          <app-capacitacao-form></app-capacitacao-form>
+                          <!-- <app-capacitacao-form></app-capacitacao-form> -->
                       </div>
                   </div>
               </div>
@@ -416,7 +419,7 @@
                                   </select>
                               </div>
                           </form> -->
-                          <app-skill-form></app-skill-form>
+                          <!-- <app-skill-form></app-skill-form> -->
                       </div>
                   </div>
               </div>
@@ -446,7 +449,7 @@
                                 <input type="fone" class="form-control" id="Telefone" placeholder="Telefone">
                               </div>
                           </form> -->
-                          <app-professor-form></app-professor-form>
+                          <!-- <app-professor-form></app-professor-form> -->
                       </div>
                   </div>
               </div>
@@ -476,7 +479,7 @@
                                             <input type="fone" class="form-control" id="Telefone" placeholder="Telefone">
                                           </div>
                                       </form> -->
-                                      <app-coordenador-form></app-coordenador-form>
+                                      <!-- <app-coordenador-form></app-coordenador-form> -->
                                   </div>
                               </div>
                           </div>

@@ -78,6 +78,7 @@ public class Seguranca {
             authorize -> authorize
                 // .anyRequest().permitAll() // pode navegar sem login
                 .requestMatchers(HttpMethod.POST, "/login").permitAll()
+                .requestMatchers(HttpMethod.POST, "/aluno/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
         );
 

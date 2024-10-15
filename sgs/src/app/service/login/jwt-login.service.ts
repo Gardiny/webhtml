@@ -104,16 +104,31 @@ export class JwtLoginService implements ILoginService {
   //   clearInterval(this.intervaloRenovacao);
   //   this.router.navigate(['/login']);
   // }
+
+  // logout(): void {
+  //   // Verifica se está no navegador antes de acessar o document e cookies
+  //   if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+  //     // Modificar ou apagar cookies usando o document
+  //     document.cookie = 'XSRF-TOKEN=; Max-Age=0; path=/';
+  //   }
+  
+  //   // Lógica de redirecionamento ou outras ações de logout
+  //   this.router.navigate(['/login']);
+  // }
+
   logout(): void {
-    // Verifica se está no navegador antes de acessar o document e cookies
+    // Verifica se está no navegador antes de acessar sessionStorage e document
     if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-      // Modificar ou apagar cookies usando o document
+      sessionStorage.removeItem('token');
+      sessionStorage.removeItem('usuario');
+      sessionStorage.removeItem('tokenExp');
       document.cookie = 'XSRF-TOKEN=; Max-Age=0; path=/';
     }
   
-    // Lógica de redirecionamento ou outras ações de logout
-    this.router.navigate(['/login']);
+    clearInterval(this.intervaloRenovacao); // Cancela o intervalo de renovação do token, se existir
+    this.router.navigate(['/login']); // Redireciona para a página de login
   }
+  
 
   isLoggedIn(): boolean {
     // Verifica se está no navegador antes de checar o token
