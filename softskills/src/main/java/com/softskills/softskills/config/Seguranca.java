@@ -56,23 +56,23 @@ public class Seguranca {
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.httpBasic(withDefaults());
         http.cors(withDefaults());
-        // http.csrf(csrf -> csrf.disable()); 
+        http.csrf(csrf -> csrf.disable()); 
         http.authenticationProvider(authProvider());
         http.sessionManagement(
             session -> session.sessionCreationPolicy(
-                SessionCreationPolicy.IF_REQUIRED
-                // SessionCreationPolicy.ALWAYS
+                // SessionCreationPolicy.IF_REQUIRED
+                SessionCreationPolicy.ALWAYS
             )
         );
 
-        XorCsrfTokenRequestAttributeHandler gerenciadorCsrf = new XorCsrfTokenRequestAttributeHandler();
-        gerenciadorCsrf.setCsrfRequestAttributeName(null);
-        http.csrf(
-            csrf -> csrf
-                .ignoringRequestMatchers("/login")
-                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-                .csrfTokenRequestHandler(gerenciadorCsrf::handle)
-        );
+        // XorCsrfTokenRequestAttributeHandler gerenciadorCsrf = new XorCsrfTokenRequestAttributeHandler();
+        // gerenciadorCsrf.setCsrfRequestAttributeName(null);
+        // http.csrf(
+        //     csrf -> csrf
+        //         .ignoringRequestMatchers("/login")
+        //         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+        //         .csrfTokenRequestHandler(gerenciadorCsrf::handle)
+        // );
 
         http.authorizeHttpRequests(
             authorize -> authorize
