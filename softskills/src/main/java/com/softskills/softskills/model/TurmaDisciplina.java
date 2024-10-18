@@ -59,11 +59,11 @@ public class TurmaDisciplina implements Serializable{
         return disciplina;
     }
 
-    public void setDisciplina(Disciplina Disciplina) {
-        this.disciplina = Disciplina;
-        if (Disciplina != null){
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+        if (disciplina != null){
             if (id == null) id = new TurmaDisciplinaId();
-            id.setDisciplina(Disciplina.getId());
+            id.setDisciplina(disciplina.getId());
         }
     }
 

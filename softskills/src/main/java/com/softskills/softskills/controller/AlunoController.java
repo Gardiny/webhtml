@@ -1,5 +1,8 @@
 package com.softskills.softskills.controller;
 
+import java.io.IOException;
+import java.io.OutputStream;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -16,7 +19,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import java.util.UUID;
+import java.util.Base64;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import com.softskills.softskills.model.Aluno;
 import com.softskills.softskills.service.AlunoService;
 
@@ -24,15 +31,13 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/aluno",produces = MediaType.APPLICATION_JSON_VALUE)
-public class AlunoController implements IController<Aluno> {
+public class AlunoController{
 
     private final AlunoService servico;
-
     public AlunoController(AlunoService servico) {
         this.servico = servico;
     }
 
-    @Override
     @GetMapping("/")
     public ResponseEntity<Page<Aluno>> get(
         @RequestParam(required = false) String termoBusca,
@@ -46,7 +51,6 @@ public class AlunoController implements IController<Aluno> {
         return ResponseEntity.ok(registros);
     }
 
-    @Override
     @GetMapping("/{id}")
     public ResponseEntity<Aluno> get(@PathVariable("id") Long id) {
         Aluno registro = servico.get(id);
@@ -56,23 +60,21 @@ public class AlunoController implements IController<Aluno> {
         return ResponseEntity.ok(registro);
     }
 
-    @Override
     @PostMapping("/")
     public ResponseEntity<Aluno> insert(@RequestBody @Valid Aluno objeto) {
-        Aluno registro = servico.save(objeto);
+        Aluno registro = servico.save(objeto); 
         return ResponseEntity.status(HttpStatus.CREATED).body(registro);
     }
 
-    @Override
+
     @PutMapping("/")
-    public ResponseEntity<Aluno> update(@RequestBody @Valid Aluno objeto) {
+    public ResponseEntity<Aluno> update(@RequestBody @Valid Aluno objeto){
         Aluno registro = servico.save(objeto);
         return ResponseEntity.ok(registro);
     }
 
-    @Override
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<?> delete(@PathVariable("id") Long id) throws IOException {
         servico.delete(id);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }

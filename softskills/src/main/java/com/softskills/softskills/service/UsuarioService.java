@@ -2,6 +2,7 @@ package com.softskills.softskills.service;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.softskills.softskills.model.Usuario;
@@ -34,18 +35,17 @@ public class UsuarioService implements Iservice<Usuario>{
 
     @Override
     public Usuario save(Usuario objeto) {
-        // if (objeto.getSenha() == null || objeto.getSenha().isBlank()) {
-        //     Long id = objeto.getId();
-        //     Usuario usuario = get(id);
-        //     if (usuario != null) {
-        //         objeto.setSenha(usuario.getSenha());
-        //     }
-        // importar o springFramework security para implementar a encriptação da senha
-        // } else {
-        //     BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        //     String senhaCriptografada = passwordEncoder.encode(objeto.getSenha());
-        //     objeto.setSenha(senhaCriptografada);
-        //    } 
+        if (objeto.getSenha() == null || objeto.getSenha().isBlank()) {
+            Long id = objeto.getId();
+            Usuario usuario = get(id);
+            if (usuario != null) {
+                objeto.setSenha(usuario.getSenha());
+            }
+        } else {
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String senhaCriptografada = passwordEncoder.encode(objeto.getSenha());
+            objeto.setSenha(senhaCriptografada);
+           }
            return repo.save(objeto);
     }
 

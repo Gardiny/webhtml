@@ -7,7 +7,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.softskills.softskills.controller.dto.DisciplinaSkillDto;
-import com.softskills.softskills.model.AlunoSkill;
 import com.softskills.softskills.model.Disciplina;
 import com.softskills.softskills.model.DisciplinaSkill;
 import com.softskills.softskills.model.DisciplinaSkillId;

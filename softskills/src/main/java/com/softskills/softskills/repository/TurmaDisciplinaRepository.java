@@ -19,11 +19,11 @@ public interface TurmaDisciplinaRepository extends JpaRepository<TurmaDisciplina
     @Query(
         "select td from TurmaDisciplina td where td.disciplina.id = :disciplinaId"
     )
-    List<TurmaDisciplina> getByDisciplina(Long disciplina);
+    List<TurmaDisciplina> getByDisciplina(Long disciplinaId);
 
     @Query(
         "select td from TurmaDisciplina td where td.professor.id = :professorId"
     )
-    List<TurmaDisciplina> getByProfessor(Long professor);
+    List<TurmaDisciplina> getByProfessor(Long professorId);
 }
 

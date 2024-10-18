@@ -33,6 +33,9 @@ public class Aluno {
     @Column(nullable = false)
     private EStatus status = EStatus.ATIVO;
 
+    @Column(columnDefinition = "LONGTEXT")
+    private String foto;
+
     public Long getId() {
         return id;
     }
@@ -80,4 +83,14 @@ public class Aluno {
     public void setSexo(ESexo sexo) {
         this.sexo = sexo;
     }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    
 }
