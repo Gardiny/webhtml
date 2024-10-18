@@ -42,7 +42,9 @@
                "src/app/assets/js/chart.min.js",
                "src/app/assets/demo/chart-area-demo.js",
                "src/app/assets/demo/chart-bar-demo.js",
-               "src/app/assets/js/snipperts.js"
+               "src/app/assets/js/snipperts.js",
+               "src/app/assets/js/bootstrap.min.js",
+               "src/app/assets/js/jquery.min.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,

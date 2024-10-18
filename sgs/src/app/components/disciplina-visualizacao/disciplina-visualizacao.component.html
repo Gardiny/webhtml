@@ -1,0 +1,13 @@
+<h2 class="titulo">Selecione a Disciplina</h2>
+
+<div class="turma-container">
+  <div *ngFor="let disciplina of registros" 
+       class="turma-card" 
+       [routerLink]="['/avaliacao']" 
+       [queryParams]="{id: disciplina.disciplina_id}">
+    <h3>{{ disciplina.disciplina_nome }}</h3>
+  </div>  
+</div>
+<div class="btn-voltar"><button  class="btn btn-primary btn-lg" [routerLink]="['/turmavisualizaçao']" value="voltar">Voltar</button></div>
+
+

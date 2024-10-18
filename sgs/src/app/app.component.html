@@ -1,554 +1,554 @@
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-      <!-- Navbar Brand-->
-      <a class="navbar-brand ps-3" href="index.html" *ngIf="isLoggendIn()">
-        <img src="/sgs/public/skill-logo.png">
-        SGS
-      </a>
-      <!-- Sidebar Toggle-->
-      <button
-        class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
-        id="sidebarToggle"
-        href="#!"
-        *ngIf="isLoggendIn()"
-      >
-        <i class="fas fa-bars"></i>
-      </button>
-      <!-- Navbar Search-->
-      <form
-        class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
-      >
-        <div class="input-group">
-          <input
-            class="form-control"
-            type="text"
-            placeholder="Pesquisar"
-            aria-label="Pesquisar"
-            aria-describedby="btnNavbarSearch"
-            *ngIf="isLoggendIn()" 
-          />
-          <!--<button class="btn btn-primary" id="btnNavbarSearch" type="button">
-            <i class="fas fa-search"></i>
-          </button>-->
-        </div>
-      </form>
-      <!-- Navbar-->
-      <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" *ngIf="isLoggendIn()" >
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            id="navbarDropdown"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            *ngIf="isLoggendIn()"
-            ><i class="fas fa-user fa-fw"></i
-          ></a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdown"
-          >
-            <!--<li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li><hr class="dropdown-divider" /></li>-->
-                    <li><a class="dropdown-item" (click)="logout()">Sair</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-    <div id="layoutSidenav">
-      <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion" *ngIf="isLoggendIn()" >
-          <div class="sb-sidenav-menu">
-            <div class="nav">
-              <div class="sb-sidenav-menu-heading"></div>
-              <a class="nav-link" href="index.html">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-tachometer-alt"></i>
-                </div>
-                Início
-              </a>
-              <a class="nav-link" [routerLink]="['/ranking']">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-trophy"></i>
-                </div>
-                Ranqueamento por Skill
-              </a>
-              <a class="nav-link" [routerLink]="['/avaliacao']">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-tachometer-alt"></i>
-                </div>
-                Avaliação
-              </a>
-              <div class="sb-sidenav-menu-heading"></div><a class="nav-link collapsed"href="#"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseLayouts"
-                aria-expanded="false"
-                aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon"><i class="fa fa-archive"></i></div>
-                Registro
-                <div class="sb-sidenav-collapse-arrow">
-                  <i class="fas fa-angle-down"></i>
-                </div>
-              </a>
-              <div
-                class="collapse"
-                id="collapseLayouts"
-                aria-labelledby="headingOne"
-                data-bs-parent="#sidenavAccordion">
-              <nav>
-                <a class="nav-link"  [routerLink]="['/aluno']" routerLinkActive="active">Alunos</a>
-                <a class="nav-link"  [routerLink]="['/professor']" routerLinkActive="active">Professores</a>
-                <a class="nav-link"  [routerLink]="['/skill']" routerLinkActive="active">Skills</a>
-                <a class="nav-link"  [routerLink]="['/coordenador']" routerLinkActive="active">Coordenadores</a>
-                <a class="nav-link"  [routerLink]="['/capacitacao']" routerLinkActive="active">Capacitações</a>
-                <a class="nav-link"  [routerLink]="['/disciplina']" routerLinkActive="active">Disciplinas</a>
-                <a class="nav-link"  [routerLink]="['/turma']" routerLinkActive="active">Turmas</a>
-                <a class="nav-link"  [routerLink]="['/usuario']" routerLinkActive="active">Usuarios</a>
-              </nav>
-              </div>
-              <a class="nav-link collapsed" href="#"
-    data-bs-toggle="collapse"
-    data-bs-target="#collapseRegistra"
-    aria-expanded="false"
-    aria-controls="collapseRegistra">
-    <div class="sb-nav-link-icon"><i class="fa fa-plus-square"></i></div>
-    Cadastrar
-    <div class="sb-sidenav-collapse-arrow">
-      <i class="fas fa-angle-down"></i>
-    </div>
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+  <!-- Navbar Brand-->
+  <a class="navbar-brand ps-3" href="index.html" *ngIf="isLoggendIn()">
+    <img src="/sgs/public/skill-logo.png">
+    SGS
   </a>
-  <div
-    class="collapse"
-    id="collapseRegistra"
-    aria-labelledby="headingTwo"
-    data-bs-parent="#sidenavAccordion">
-    <nav class="sb-sidenav-menu-nested nav">
-
-      <a class="nav-link"  [routerLink]="['/capacitacao/form']" routerLinkActive="active">
-        <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Capacitacão </a>
-
-      <a class="nav-link" [routerLink]="['/usuario/form']" routerLinkActive="active">
-          <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Usuário
-      </a>
-
-      <a class="nav-link" [routerLink]="['/aluno/form']" routerLinkActive="active">
-        <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Aluno
-    </a>
-
-      <a class="nav-link" [routerLink]="['/turma/form']" routerLinkActive="active">
-          <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Turma
-      </a>
-
-      <a class="nav-link" [routerLink]="['/disciplina/form']" routerLinkActive="active">
-        <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Disciplina
-      </a>
-
-      <a class="nav-link" [routerLink]="['/skill/form']" routerLinkActive="active">
-        <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Skills
-      </a>
-
-      <a class="nav-link" [routerLink]="['/professor/form']" routerLinkActive="active">
-        <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Professores
-      </a>
-
-      <a class="nav-link" [routerLink]="['/coordenador/form']" routerLinkActive="active">
-        <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Coordenadores
-      </a>
-
-    </nav>
-
-  </div>
-
+  <!-- Sidebar Toggle-->
+  <button
+    class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
+    id="sidebarToggle"
+    href="#!"
+    *ngIf="isLoggendIn()"
+  >
+    <i class="fas fa-bars"></i>
+  </button>
+  <!-- Navbar Search-->
+  <form
+    class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
+  >
+    <div class="input-group">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Pesquisar"
+        aria-label="Pesquisar"
+        aria-describedby="btnNavbarSearch"
+        *ngIf="isLoggendIn()" 
+      />
+      <!--<button class="btn btn-primary" id="btnNavbarSearch" type="button">
+        <i class="fas fa-search"></i>
+      </button>-->
+    </div>
+  </form>
+  <!-- Navbar-->
+  <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" *ngIf="isLoggendIn()" >
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        id="navbarDropdown"
+        href="#"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        *ngIf="isLoggendIn()"
+        ><i class="fas fa-user fa-fw"></i
+      ></a>
+      <ul
+        class="dropdown-menu dropdown-menu-end"
+        aria-labelledby="navbarDropdown"
+      >
+        <!--<li><a class="dropdown-item" href="#!">Settings</a></li>
+                <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                <li><hr class="dropdown-divider" /></li>-->
+                <li><a class="dropdown-item" (click)="logout()">Sair</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<div id="layoutSidenav">
+  <div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion" *ngIf="isLoggendIn()" >
+      <div class="sb-sidenav-menu">
+        <div class="nav">
+          <div class="sb-sidenav-menu-heading"></div>
+          <a class="nav-link" href="index.html">
+            <div class="sb-nav-link-icon">
+              <i class="fas fa-tachometer-alt"></i>
             </div>
+            Início
+          </a>
+          <a class="nav-link" [routerLink]="['/ranking']">
+            <div class="sb-nav-link-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            Ranqueamento por Skill
+          </a>
+          <a class="nav-link" [routerLink]="['/avaliacao']">
+            <div class="sb-nav-link-icon">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
+            Avaliação
+          </a>
+          <div class="sb-sidenav-menu-heading"></div><a class="nav-link collapsed"href="#"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseLayouts"
+            aria-expanded="false"
+            aria-controls="collapseLayouts">
+            <div class="sb-nav-link-icon"><i class="fa fa-archive"></i></div>
+            Registro
+            <div class="sb-sidenav-collapse-arrow">
+              <i class="fas fa-angle-down"></i>
+            </div>
+          </a>
+          <div
+            class="collapse"
+            id="collapseLayouts"
+            aria-labelledby="headingOne"
+            data-bs-parent="#sidenavAccordion">
+          <nav>
+            <a class="nav-link"  [routerLink]="['/aluno']" routerLinkActive="active">Alunos</a>
+            <a class="nav-link"  [routerLink]="['/professor']" routerLinkActive="active">Professores</a>
+            <a class="nav-link"  [routerLink]="['/skill']" routerLinkActive="active">Skills</a>
+            <a class="nav-link"  [routerLink]="['/coordenador']" routerLinkActive="active">Coordenadores</a>
+            <a class="nav-link"  [routerLink]="['/capacitacao']" routerLinkActive="active">Capacitações</a>
+            <a class="nav-link"  [routerLink]="['/disciplina']" routerLinkActive="active">Disciplinas</a>
+            <a class="nav-link"  [routerLink]="['/turma']" routerLinkActive="active">Turmas</a>
+            <a class="nav-link"  [routerLink]="['/usuario']" routerLinkActive="active">Usuarios</a>
+          </nav>
           </div>
-          <div class="sb-sidenav-footer">
-            <div class="small">SGS - Sistema de Gestão de Skill</div>
-            <h6></h6>
-          </div>
-        </nav>
+          <a class="nav-link collapsed" href="#"
+data-bs-toggle="collapse"
+data-bs-target="#collapseRegistra"
+aria-expanded="false"
+aria-controls="collapseRegistra">
+<div class="sb-nav-link-icon"><i class="fa fa-plus-square"></i></div>
+Cadastrar
+<div class="sb-sidenav-collapse-arrow">
+  <i class="fas fa-angle-down"></i>
+</div>
+</a>
+<div
+class="collapse"
+id="collapseRegistra"
+aria-labelledby="headingTwo"
+data-bs-parent="#sidenavAccordion">
+<nav class="sb-sidenav-menu-nested nav">
+
+  <a class="nav-link"  [routerLink]="['/capacitacao/form']" routerLinkActive="active">
+    <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Capacitacão </a>
+
+  <a class="nav-link" [routerLink]="['/usuario/form']" routerLinkActive="active">
+      <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Usuário
+  </a>
+
+  <a class="nav-link" [routerLink]="['/aluno/form']" routerLinkActive="active">
+    <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Aluno
+</a>
+
+  <a class="nav-link" [routerLink]="['/turma/form']" routerLinkActive="active">
+      <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Turma
+  </a>
+
+  <a class="nav-link" [routerLink]="['/disciplina/form']" routerLinkActive="active">
+    <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Disciplina
+  </a>
+
+  <a class="nav-link" [routerLink]="['/skill/form']" routerLinkActive="active">
+    <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Skills
+  </a>
+
+  <a class="nav-link" [routerLink]="['/professor/form']" routerLinkActive="active">
+    <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Professores
+  </a>
+
+  <a class="nav-link" [routerLink]="['/coordenador/form']" routerLinkActive="active">
+    <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>Coordenadores
+  </a>
+
+</nav>
+
+</div>
+
+        </div>
       </div>
-      <div id="layoutSidenav_content">
-        <main>
-          <div class="container-fluid px-4">
-            <h1 class="mt-4">SGS - Sistema de Gestão de Skill</h1>
-            <ol class="breadcrumb mb-4">
-              <li class="breadcrumb-item active"></li>
-            </ol>
-            <!-- <div class="row" id="cards" *ngIf="isLoggendIn()">
-              <div class="col-xl-2 col-md-6">
-                <div class="card bg-danger text-white mb-4">
-                  <div class="card-body">Total de Alunos </div>
-                  <div class="card-footer d-flex align-items-center justify-content-center">
-                    <div class="text-center">{{totalAlunos}}</div>
-                  </div>
-                </div>
+      <div class="sb-sidenav-footer">
+        <div class="small">SGS - Sistema de Gestão de Skill</div>
+        <h6></h6>
+      </div>
+    </nav>
+  </div>
+  <div id="layoutSidenav_content">
+    <main>
+      <div class="container-fluid px-4">
+        <h1 class="mt-4">SGS - Sistema de Gestão de Skill</h1>
+        <ol class="breadcrumb mb-4">
+          <li class="breadcrumb-item active"></li>
+        </ol>
+        <!-- <div class="row" id="cards" *ngIf="isLoggendIn()">
+          <div class="col-xl-2 col-md-6">
+            <div class="card bg-danger text-white mb-4">
+              <div class="card-body">Total de Alunos </div>
+              <div class="card-footer d-flex align-items-center justify-content-center">
+                <div class="text-center">{{totalAlunos}}</div>
               </div>
-
-              <div class="col-xl-2 col-md-6">
-                <div class="card bg-primary text-white mb-2">
-                  <div class="card-body">Cursando </div>
-                  <div class="card-footer d-flex align-items-center justify-content-center">
-                    <div class="text-center">{{alunosAtivos}}</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-xl-2 col-md-6">
-                <div class="card bg-success text-white mb-2">
-                  <div class="card-body">Formados </div>
-                  <div class="card-footer d-flex align-items-center justify-content-center">
-                    <div class="text-center">{{alunosConcluidos}}</div>
-                  </div>
-                </div>
-              </div> -->
-
-              <!-- <div class="col-xl-2 col-md-6">
-                <div class="card bg-warning text-white mb-2">
-                  <div class="card-body">Turmas</div>
-                  <div class="card-footer d-flex align-items-center justify-content-center">
-                    <div class="text-center">{{ totalTurmas }}</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-xl-2 col-md-6">
-                <div class="card bg-info text-white mb-2">
-                  <div class="card-body">Desistentes</div>
-                    <div class="card-footer d-flex align-items-center justify-content-center">
-                    <div class="text-center">{{ alunosDesistentes }}</div>
-                </div>
-                </div>
-              </div>
-            </div> -->
-
-            <router-outlet></router-outlet>
-            <div class="card mb-4" *ngIf="isLoggendIn()">
-             
-              
-
-              <!--Inicio Modal Usuário-->
-              <div class="modal fade" id="usuarioModal" tabindex="-1" aria-labelledby="usuarioModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="usuarioModalLabel">Cadastrar Usuário</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Formulário de Cadastro -->
-                            <!-- <form id="cadastroUsuarioForm">
-                                <div class="mb-3">
-                                    <label for="nomeCompleto" class="form-label">Nome Completo</label>
-                                    <input type="text" class="form-control" id="nomeCompleto" placeholder="Digite o nome completo">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="nomeUsuario" class="form-label">Nome de Usuário</label>
-                                    <input type="text" class="form-control" id="nomeUsuario" placeholder="Digite o nome de usuário">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="senha" class="form-label">Senha</label>
-                                    <input type="password" class="form-control" id="senha" placeholder="Digite a senha">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="papel" class="form-label">Papel</label>
-                                    <select class="form-select" id="papel">
-                                      <option value="pp">-----</option>
-                                        <option value="pp1">Administrador</option>
-                                        <option value="pp2">Professor</option>
-                                        <option value="pp3">Coordenador</option>
-                                    </select>
-                                </div>
-                                <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" id="ativo">
-                                    <label class="form-check-label" for="ativo">
-                                        Ativo
-                                    </label>
-                                </div>
-                            </form> -->
-                            <!-- <app-usuario-form></app-usuario-form> -->
-                        </div>
-                    </div>
-                </div>
             </div>
-              <!--Fim modal Usuário-->
+          </div>
 
-              <!--Inicio Modal Turma-->
-              <div class="modal fade" id="turmaModal" tabindex="-1" aria-labelledby="turmaModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="turmaModalLabel">Cadastrar Turma</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Formulário de Cadastro -->
-                            <!-- <form id="cadastroTurmaForm">
-                                <div class="mb-3">
-                                    <label for="nome" class="form-label">Nome</label>
-                                    <input type="text" class="form-control" id="nome" placeholder="Nome da turma">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="quantidadeVagas" class="form-label">Quantidade de vagas</label>
-                                    <input type="text" class="form-control" id="quantidadeVagas" placeholder="Quantidade de vagas">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="capacitacao" class="form-label">Capacitação</label>
-                                    <input type="text" class="form-control" id="capacitacao" placeholder="Capacitação">
-                                </div>
-
-                            </form> -->
-                            <!-- <app-turma-form></app-turma-form> -->
-                        </div>
-                    </div>
-                </div>
+          <div class="col-xl-2 col-md-6">
+            <div class="card bg-primary text-white mb-2">
+              <div class="card-body">Cursando </div>
+              <div class="card-footer d-flex align-items-center justify-content-center">
+                <div class="text-center">{{alunosAtivos}}</div>
+              </div>
             </div>
-              <!--Fim modal Turma-->
+          </div>
 
-              <!--Inicio Modal disciplina-->
-              <div class="modal fade" id="disciplinaModal" tabindex="-1" aria-labelledby="disciplinaModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="disciplinaModalLabel">Cadastrar Capacitação</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Formulário de Cadastro -->
-                            <!-- <form id="cadastroDisciplinaForm">
-                                <div class="mb-3">
-                                    <label for="nome" class="form-label">Nome</label>
-                                    <input type="text" class="form-control" id="nome" placeholder="Nome da Disciplina">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="carga horária" class="form-label">Carga horária</label>
-                                    <input type="text" class="form-control" id="carga horária" placeholder="Carga Horaria">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="turma" class="form-label">Turma</label>
-                                  <select class="form-select" id="papel">
-                                    <option value="---">-----</option>
-                                      <option value="t1">Turma 1</option>
-                                      <option value="t2">Turma 2</option>
-                                      <option value="t3">Turma 3</option>
-                                      <option value="t4">Turma 4</option>
-                                      <option value="t5">Turma 5</option>
-                                      <option value="t6">Turma 6</option>
-                                  </select>
-                              </div>
-                              <div class="mb-3">
-                                <label for="professor" class="form-label">Professor</label>
-                                <select class="form-select" id="professor">
-                                  <option value="admin">-----</option>
-                                    <option value="p1">Daniel Silva</option>
-                                    <option value="p2">Daricélio Moreira</option>
-                                    <option value="p3">Paulo Sampaio</option>
+          <div class="col-xl-2 col-md-6">
+            <div class="card bg-success text-white mb-2">
+              <div class="card-body">Formados </div>
+              <div class="card-footer d-flex align-items-center justify-content-center">
+                <div class="text-center">{{alunosConcluidos}}</div>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- <div class="col-xl-2 col-md-6">
+            <div class="card bg-warning text-white mb-2">
+              <div class="card-body">Turmas</div>
+              <div class="card-footer d-flex align-items-center justify-content-center">
+                <div class="text-center">{{ totalTurmas }}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-2 col-md-6">
+            <div class="card bg-info text-white mb-2">
+              <div class="card-body">Desistentes</div>
+                <div class="card-footer d-flex align-items-center justify-content-center">
+                <div class="text-center">{{ alunosDesistentes }}</div>
+            </div>
+            </div>
+          </div>
+        </div> -->
+
+        <router-outlet></router-outlet>
+        <div class="card mb-4" *ngIf="isLoggendIn()">
+         
+          
+
+          <!--Inicio Modal Usuário-->
+          <div class="modal fade" id="usuarioModal" tabindex="-1" aria-labelledby="usuarioModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="usuarioModalLabel">Cadastrar Usuário</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Formulário de Cadastro -->
+                        <!-- <form id="cadastroUsuarioForm">
+                            <div class="mb-3">
+                                <label for="nomeCompleto" class="form-label">Nome Completo</label>
+                                <input type="text" class="form-control" id="nomeCompleto" placeholder="Digite o nome completo">
+                            </div>
+                            <div class="mb-3">
+                                <label for="nomeUsuario" class="form-label">Nome de Usuário</label>
+                                <input type="text" class="form-control" id="nomeUsuario" placeholder="Digite o nome de usuário">
+                            </div>
+                            <div class="mb-3">
+                                <label for="senha" class="form-label">Senha</label>
+                                <input type="password" class="form-control" id="senha" placeholder="Digite a senha">
+                            </div>
+                            <div class="mb-3">
+                                <label for="papel" class="form-label">Papel</label>
+                                <select class="form-select" id="papel">
+                                  <option value="pp">-----</option>
+                                    <option value="pp1">Administrador</option>
+                                    <option value="pp2">Professor</option>
+                                    <option value="pp3">Coordenador</option>
                                 </select>
                             </div>
-
-                            </form> -->
-                          <!-- <app-disciplinas-form></app-disciplinas-form> -->
-                        </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="ativo">
+                                <label class="form-check-label" for="ativo">
+                                    Ativo
+                                </label>
+                            </div>
+                        </form> -->
+                        <!-- <app-usuario-form></app-usuario-form> -->
                     </div>
                 </div>
             </div>
-              <!-- Fim modal Disciplina-->
+        </div>
+          <!--Fim modal Usuário-->
 
-             <!-- Inicio modal capacitacao-->
-             <div class="modal fade" id="capacitacaoModal" tabindex="-1" aria-labelledby="capacitacaoModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h5 class="modal-title" id="capacitacaoModalLabel">Cadastrar Capacitação</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                          <!-- Formulário de Cadastro -->
-                          <!-- <form id="cadastroCapacitacaoForm">
+          <!--Inicio Modal Turma-->
+          <div class="modal fade" id="turmaModal" tabindex="-1" aria-labelledby="turmaModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="turmaModalLabel">Cadastrar Turma</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Formulário de Cadastro -->
+                        <!-- <form id="cadastroTurmaForm">
                             <div class="mb-3">
-                              <label for="nomeCapacitacao" class="form-label">Nome</label>
-                              <input type="text" class="form-control" id="nomeCapacitacao" placeholder="nome">
-                          </div>
-                             <div class="mb-3">
-                                  <label for="carga horária" class="form-label">Carga horária</label>
-                                  <input type="text" class="form-control" id="carga horária" placeholder="Carga Horaria">
-                              </div>
-                              <div class="mb-3">
-                                <label for="data inicio" class="form-label">Data início</label>
-                                <input type="date" class="form-control" id="data inicio" placeholder="">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nome" placeholder="Nome da turma">
                             </div>
                             <div class="mb-3">
-                              <label for="data Fim" class="form-label">Data Fim</label>
-                              <input type="date" class="form-control" id="data Fim" placeholder="">
-                          </div>
-
-                          </form> -->
-                          <!-- <app-capacitacao-form></app-capacitacao-form> -->
-                      </div>
-                  </div>
-              </div>
-          </div>
-           <!-- Fim modal capacitacao-->
-
-            <!-- Formulário de Skills -->
-            <div class="modal fade" id="skillModal" tabindex="-1" aria-labelledby="skillModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h5 class="modal-title" id="skillModalLabel">Cadastrar Skill</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                          <!-- Formulário de Cadastro de Skill -->
-                          <!-- <form id="cadastroSkillForm">
-                              <div class="mb-3">
-                                  <label for="nomeSkill" class="form-label">Nome</label>
-                                  <input type="text" class="form-control" id="nomeSkill" placeholder="Nome da skill" required>
-                              </div>
-
-                              <div class="mb-3">
-                                  <label for="descricaoSkill" class="form-label">Descrição</label>
-                                  <input type="text" class="form-control" id="descricaoSkill" placeholder="Descrição da skill" required>
-                              </div>
-
-                              <div class="mb-3">
-                                  <label for="tipoSkill" class="form-label">Tipo de Skill</label>
-                                  <select class="form-select" id="tipoSkill" required>
-                                      <option value="">Selecione o tipo</option>
-                                      <option value="SOFT_SKILL">Soft Skill</option>
-                                      <option value="HARD_SKILL">Hard Skill</option>
-                                  </select>
-                              </div>
-                          </form> -->
-                          <!-- <app-skill-form></app-skill-form> -->
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-             <!-- Inicio modal capacitacao-->
-             <div class="modal fade" id="profModal" tabindex="-1" aria-labelledby="capacitacaoModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h5 class="modal-title" id="capacitacaoModalLabel">Cadastrar Professor</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                          <!-- Formulário de Cadastro -->
-                          <!-- <form id="cadastroCapacitacaoForm">
+                                <label for="quantidadeVagas" class="form-label">Quantidade de vagas</label>
+                                <input type="text" class="form-control" id="quantidadeVagas" placeholder="Quantidade de vagas">
+                            </div>
                             <div class="mb-3">
-                              <label for="nomeCapacitacao" class="form-label">Nome</label>
-                              <input type="text" class="form-control" id="nomeCapacitacao" placeholder="nome">
+                                <label for="capacitacao" class="form-label">Capacitação</label>
+                                <input type="text" class="form-control" id="capacitacao" placeholder="Capacitação">
+                            </div>
+
+                        </form> -->
+                        <!-- <app-turma-form></app-turma-form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+          <!--Fim modal Turma-->
+
+          <!--Inicio Modal disciplina-->
+          <div class="modal fade" id="disciplinaModal" tabindex="-1" aria-labelledby="disciplinaModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="disciplinaModalLabel">Cadastrar Capacitação</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Formulário de Cadastro -->
+                        <!-- <form id="cadastroDisciplinaForm">
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nome" placeholder="Nome da Disciplina">
+                            </div>
+                            <div class="mb-3">
+                                <label for="carga horária" class="form-label">Carga horária</label>
+                                <input type="text" class="form-control" id="carga horária" placeholder="Carga Horaria">
+                            </div>
+                            <div class="mb-3">
+                              <label for="turma" class="form-label">Turma</label>
+                              <select class="form-select" id="papel">
+                                <option value="---">-----</option>
+                                  <option value="t1">Turma 1</option>
+                                  <option value="t2">Turma 2</option>
+                                  <option value="t3">Turma 3</option>
+                                  <option value="t4">Turma 4</option>
+                                  <option value="t5">Turma 5</option>
+                                  <option value="t6">Turma 6</option>
+                              </select>
                           </div>
-                             <div class="mb-3">
-                                  <label for="email" class="form-label">Email</label>
-                                  <input type="text" class="form-control" id="Email" placeholder="Email">
-                              </div>
-                              <div class="mb-3">
-                                <label for="telefone" class="form-label">Telefone</label>
-                                <input type="fone" class="form-control" id="Telefone" placeholder="Telefone">
-                              </div>
-                          </form> -->
-                          <!-- <app-professor-form></app-professor-form> -->
+                          <div class="mb-3">
+                            <label for="professor" class="form-label">Professor</label>
+                            <select class="form-select" id="professor">
+                              <option value="admin">-----</option>
+                                <option value="p1">Daniel Silva</option>
+                                <option value="p2">Daricélio Moreira</option>
+                                <option value="p3">Paulo Sampaio</option>
+                            </select>
+                        </div>
+
+                        </form> -->
+                      <!-- <app-disciplinas-form></app-disciplinas-form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+          <!-- Fim modal Disciplina-->
+
+         <!-- Inicio modal capacitacao-->
+         <div class="modal fade" id="capacitacaoModal" tabindex="-1" aria-labelledby="capacitacaoModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="capacitacaoModalLabel">Cadastrar Capacitação</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <!-- Formulário de Cadastro -->
+                      <!-- <form id="cadastroCapacitacaoForm">
+                        <div class="mb-3">
+                          <label for="nomeCapacitacao" class="form-label">Nome</label>
+                          <input type="text" class="form-control" id="nomeCapacitacao" placeholder="nome">
                       </div>
+                         <div class="mb-3">
+                              <label for="carga horária" class="form-label">Carga horária</label>
+                              <input type="text" class="form-control" id="carga horária" placeholder="Carga Horaria">
+                          </div>
+                          <div class="mb-3">
+                            <label for="data inicio" class="form-label">Data início</label>
+                            <input type="date" class="form-control" id="data inicio" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                          <label for="data Fim" class="form-label">Data Fim</label>
+                          <input type="date" class="form-control" id="data Fim" placeholder="">
+                      </div>
+
+                      </form> -->
+                      <!-- <app-capacitacao-form></app-capacitacao-form> -->
                   </div>
               </div>
           </div>
-           <!-- Fim modal Coordenadores -->
-                         <!-- Inicio modal capacitacao-->
-                         <div class="modal fade" id="coorModal" tabindex="-1" aria-labelledby="capacitacaoModalLabel" aria-hidden="true">
-                          <div class="modal-dialog">
-                              <div class="modal-content">
-                                  <div class="modal-header">
-                                      <h5 class="modal-title" id="capacitacaoModalLabel">Cadastrar Coordenador</h5>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+       <!-- Fim modal capacitacao-->
+
+        <!-- Formulário de Skills -->
+        <div class="modal fade" id="skillModal" tabindex="-1" aria-labelledby="skillModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="skillModalLabel">Cadastrar Skill</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <!-- Formulário de Cadastro de Skill -->
+                      <!-- <form id="cadastroSkillForm">
+                          <div class="mb-3">
+                              <label for="nomeSkill" class="form-label">Nome</label>
+                              <input type="text" class="form-control" id="nomeSkill" placeholder="Nome da skill" required>
+                          </div>
+
+                          <div class="mb-3">
+                              <label for="descricaoSkill" class="form-label">Descrição</label>
+                              <input type="text" class="form-control" id="descricaoSkill" placeholder="Descrição da skill" required>
+                          </div>
+
+                          <div class="mb-3">
+                              <label for="tipoSkill" class="form-label">Tipo de Skill</label>
+                              <select class="form-select" id="tipoSkill" required>
+                                  <option value="">Selecione o tipo</option>
+                                  <option value="SOFT_SKILL">Soft Skill</option>
+                                  <option value="HARD_SKILL">Hard Skill</option>
+                              </select>
+                          </div>
+                      </form> -->
+                      <!-- <app-skill-form></app-skill-form> -->
+                  </div>
+              </div>
+          </div>
+      </div>
+
+         <!-- Inicio modal capacitacao-->
+         <div class="modal fade" id="profModal" tabindex="-1" aria-labelledby="capacitacaoModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="capacitacaoModalLabel">Cadastrar Professor</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <!-- Formulário de Cadastro -->
+                      <!-- <form id="cadastroCapacitacaoForm">
+                        <div class="mb-3">
+                          <label for="nomeCapacitacao" class="form-label">Nome</label>
+                          <input type="text" class="form-control" id="nomeCapacitacao" placeholder="nome">
+                      </div>
+                         <div class="mb-3">
+                              <label for="email" class="form-label">Email</label>
+                              <input type="text" class="form-control" id="Email" placeholder="Email">
+                          </div>
+                          <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="fone" class="form-control" id="Telefone" placeholder="Telefone">
+                          </div>
+                      </form> -->
+                      <!-- <app-professor-form></app-professor-form> -->
+                  </div>
+              </div>
+          </div>
+      </div>
+       <!-- Fim modal Coordenadores -->
+                     <!-- Inicio modal capacitacao-->
+                     <div class="modal fade" id="coorModal" tabindex="-1" aria-labelledby="capacitacaoModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title" id="capacitacaoModalLabel">Cadastrar Coordenador</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                  <!-- Formulário de Cadastro -->
+                                  <!-- <form id="cadastroCapacitacaoForm">
+                                    <div class="mb-3">
+                                      <label for="nomeCapacitacao" class="form-label">Nome</label>
+                                      <input type="text" class="form-control" id="nomeCapacitacao" placeholder="nome">
                                   </div>
-                                  <div class="modal-body">
-                                      <!-- Formulário de Cadastro -->
-                                      <!-- <form id="cadastroCapacitacaoForm">
-                                        <div class="mb-3">
-                                          <label for="nomeCapacitacao" class="form-label">Nome</label>
-                                          <input type="text" class="form-control" id="nomeCapacitacao" placeholder="nome">
+                                     <div class="mb-3">
+                                          <label for="email" class="form-label">Email</label>
+                                          <input type="text" class="form-control" id="Email" placeholder="Email">
                                       </div>
-                                         <div class="mb-3">
-                                              <label for="email" class="form-label">Email</label>
-                                              <input type="text" class="form-control" id="Email" placeholder="Email">
-                                          </div>
-                                          <div class="mb-3">
-                                            <label for="telefone" class="form-label">Telefone</label>
-                                            <input type="fone" class="form-control" id="Telefone" placeholder="Telefone">
-                                          </div>
-                                      </form> -->
-                                      <!-- <app-coordenador-form></app-coordenador-form> -->
-                                  </div>
+                                      <div class="mb-3">
+                                        <label for="telefone" class="form-label">Telefone</label>
+                                        <input type="fone" class="form-control" id="Telefone" placeholder="Telefone">
+                                      </div>
+                                  </form> -->
+                                  <!-- <app-coordenador-form></app-coordenador-form> -->
                               </div>
                           </div>
                       </div>
-                       <!-- Fim modal Coordenadores -->
-            </div>
-          </div>
-        </main>
-        <div class="row" *ngIf="isVisible()">
-          <div class="col-xl-12">
-            <div class="card mb-8">
-              <div class="card-header">
-                <i class="fas fa-chart-area me-1"></i>
-                Área de gráficos
-              </div>
-              <div class="card-body">
-                <iframe width="100%" height="850" src="https://lookerstudio.google.com/embed/reporting/279f6187-18af-4248-8f12-83d801ba8ee0/page/xkq9D" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-               <!--<canvas id="myAreaChart" width="100%" height="40"></canvas>-->
-              </div>
-            </div>
-          </div>
-          <!--<div class="col-xl-6">
-            <div class="card mb-4">
-              <div class="card-header">
-                <i class="fas fa-chart-bar me-1"></i>
-                Bar Chart Example
-              </div>
-              <div class="card-body">
-                <canvas id="myBarChart" width="100%" height="40"></canvas>
-              </div>
-            </div>
-          </div>-->
+                  </div>
+                   <!-- Fim modal Coordenadores -->
         </div>
-        <footer class="py-4 bg-light mt-auto">
-          <div class="container-fluid px-4">
-            <div class="d-flex align-items-center justify-content-between small">
-              <div class="text-muted">Copyright &copy; todos os direitos reservado ao grupo Razr Ultra </div>
-              <div>
-                <!--<a href="#">Privacy Policy</a>
-                &middot;
-                <a href="#">Terms &amp; Conditions</a>-->
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
+    </main>
+    <div class="row" *ngIf="isVisible()">
+      <div class="col-xl-12">
+        <div class="card mb-8">
+          <div class="card-header">
+            <i class="fas fa-chart-area me-1"></i>
+            Área de gráficos
+          </div>
+          <div class="card-body">
+            <iframe width="100%" height="850" src="https://lookerstudio.google.com/embed/reporting/279f6187-18af-4248-8f12-83d801ba8ee0/page/xkq9D" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+           <!--<canvas id="myAreaChart" width="100%" height="40"></canvas>-->
+          </div>
+        </div>
+      </div>
+      <!--<div class="col-xl-6">
+        <div class="card mb-4">
+          <div class="card-header">
+            <i class="fas fa-chart-bar me-1"></i>
+            Bar Chart Example
+          </div>
+          <div class="card-body">
+            <canvas id="myBarChart" width="100%" height="40"></canvas>
+          </div>
+        </div>
+      </div>-->
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/scripts.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/datatables-simple-demo.js"></script>
+    <footer class="py-4 bg-light mt-auto">
+      <div class="container-fluid px-4">
+        <div class="d-flex align-items-center justify-content-between small">
+          <div class="text-muted">Copyright &copy; todos os direitos reservado ao grupo Razr Ultra </div>
+          <div>
+            <!--<a href="#">Privacy Policy</a>
+            &middot;
+            <a href="#">Terms &amp; Conditions</a>-->
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+  crossorigin="anonymous"
+></script>
+<script src="js/scripts.js"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+  crossorigin="anonymous"
+></script>
+<script src="assets/demo/chart-area-demo.js"></script>
+<script src="assets/demo/chart-bar-demo.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+  crossorigin="anonymous"
+></script>
+<script src="js/datatables-simple-demo.js"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Adicione isso no final do <body> -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+<!-- Adicione isso no final do <body> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
 

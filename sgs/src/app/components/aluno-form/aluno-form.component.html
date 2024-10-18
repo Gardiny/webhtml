@@ -1,5 +1,5 @@
 <div>
-<form id="cadastroAlunosForm" (submit)="save()" [formGroup]="formAluno">
+<form id="cadastroAlunosForm" (submit)="save()" [formGroup]="formAluno" >
   <div class="backTitulo"><h3 class="tituloComponents">Cadastro de Alunos</h3></div>
   <div class="form-row">
     <div class="col-md-4 mb-3">
@@ -15,7 +15,15 @@
         <label for="telefone" class="form-label">Telefone</label>
         <input type="fone" class="form-control" id="Telefone"  formControlName="telefone" placeholder="Telefone">
       </div>
-    </div>
+      <div class="col-md-4 mb-3">
+        <label for="foto" class="form-label">Foto (opcional)</label>
+        <input type="file" class="form-control" id="foto" (change)="onFileSelected($event)">
+      </div>
+      <div class="col-md-4 mb-3" *ngIf="form.foto.value">
+        <label for="foto" class="form-label">Foto atual</label>
+        <img [src]="'data:image/jpeg;base64,' + form.foto.value" alt="Foto do Aluno" style="max-width: 200px; max-height: 200px;" />
+      </div>
+      </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Salvar</button>
         <button type="button" routerLink="./.." class="btn btn-secondary">Cancelar</button>

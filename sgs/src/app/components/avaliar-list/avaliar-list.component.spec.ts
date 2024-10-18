@@ -20,4 +20,6 @@ describe('AvaliarListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });
+

@@ -1,0 +1,6 @@
+<h2 class="titulo">Selecione a Turma</h2>
+<div class="turma-container">
+  <div *ngFor="let turma of registros" class="turma-card" [routerLink]="['/disciplinavisualizao']" [queryParams]="{id: turma.id}">
+    <h3 style="margin-top: -15px; font-weight: bold;">{{ turma.nome }}</h3>
+  </div>
+</div>

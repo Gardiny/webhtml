@@ -13,7 +13,7 @@ import { AlunoService } from '../../service/aluno.service';
   templateUrl: './aluno-form.component.html',
   styleUrls: ['./aluno-form.component.css']
 })
-export class AlunoFormComponent implements IForm<Aluno>{
+export class AlunoFormComponent{
 
   constructor(
     private servico: AlunoService,
@@ -38,7 +38,8 @@ export class AlunoFormComponent implements IForm<Aluno>{
   formAluno = new FormGroup({
     nome: new FormControl<string | null>(null),
     email: new FormControl<string | null> (null),
-    telefone: new FormControl<string | null> (null)
+    telefone: new FormControl<string | null> (null),
+    foto: new FormControl<string |null> (null)
   });
 
   get form(){
@@ -46,12 +47,24 @@ export class AlunoFormComponent implements IForm<Aluno>{
   }
 
   save(): void {
+
     this.registro = Object.assign(this.registro,this.formAluno.value);
     this.servico.save(this.registro).subscribe({
       complete: () => {
         this.router.navigate(['/aluno']);
       }
     })
+  }
+
+  onFileSelected(event: any){
+    const file = event.target.files[0];
+    if (file){
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.formAluno.patchValue({ foto: reader.result?.toString().split(',')[1] });
+      };
+    }
   }
   
 }

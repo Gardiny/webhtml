@@ -4,5 +4,6 @@ export type Aluno = {
     email:string;
     telefone:string;
     sexo:string;
+    foto: string;
     status:string;
 }
