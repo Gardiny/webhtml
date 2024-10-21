@@ -1,0 +1,42 @@
+Persona 1:
+    Nome: indeterminado – Administrador
+    Idade: 40 anos
+Cargo: Administrador do Web Academy
+Objetivo Principal: 
+    Garantir que todas as capacitações e coordenadores estejam corretamente cadastrados e associados para facilitar o aprendizado e o desenvolvimento das soft skills dos alunos.
+Necessidades: 
+    > Cadastrar novas capacitações, especificando nome e local. 
+    > Registrar coordenadores, incluindo dados pessoais e vinculando-os a capacitações específicas.
+    > Manter a plataforma organizada e eficiente, permitindo fácil navegação e gestão dos dados.
+Frustrações: 
+    > Dificuldades em garantir que as capacitações e coordenadores estejam devidamente alinhados.
+    > Problemas com a integração dos dados na plataforma, causando atrasos e confusões.
+-----------------------------------------------------------------------------
+Persona 2:
+    Nome: Daricélio Moreira Soares – Coordenador
+    Idade: 35 anos
+Cargo: Coordenador do Web Academy
+Objetivo Principal: 
+    Organizar e gerenciar as disciplinas, turmas e professores para proporcionar um ensino eficaz de soft skills aos alunos.
+Necessidades:
+    > Cadastrar disciplinas que incluem nome, habilidades (skills), carga horária, turma e professor responsável.
+    > Cadastrar turmas, especificando alunos, número da turma e status.
+    > Criar e descrever habilidades (skills) específicas que serão abordadas nas disciplinas.
+    > Cadastrar professores e vinculá-los às disciplinas adequadas.
+    > Registrar alunos e garantir que estejam corretamente matriculados em suas respectivas turmas.
+    > Acompanhar e visualizar as avaliações das habilidades (skills) para medir o progresso dos alunos.
+Frustrações:
+    > Processos complexos e demorados para cadastro e vinculação de disciplinas e professores.
+    > Dificuldade em monitorar o progresso dos alunos devido à falta de uma visão clara das avaliações.
+-----------------------------------------------------------------------------
+Persona 3:
+    Nome: Daniel – Professor
+    Idade: 40 anos
+Cargo: Professor
+    Objetivo Principal: Avaliar e acompanhar o desenvolvimento das habilidades (skills) dos alunos nas disciplinas ministradas, oferecendo suporte contínuo.
+Necessidades:
+    > Avaliar as habilidades (skills) dos alunos com base em seu desempenho nas disciplinas.
+    > Visualizar as avaliações das habilidades (skills) para fornecer feedback construtivo e ajustar as estratégias de ensino conforme necessário.
+Frustrações:
+    > Ferramentas de avaliação difíceis de usar ou pouco intuitivas.
+    > Tempo limitado para analisar e fornecer feedback detalhado sobre o desempenho dos alunos.

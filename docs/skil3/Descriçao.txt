@@ -1,0 +1,15 @@
+Criação de alguma tela que lembre uma classificação de softskils (comunicação, liderança, trabalho em equipe). Não precisa ser complicado, apenas 1 para apresentar na reunião.
+
+link Figma>[Classificação de Soft Skills] (https://www.figma.com/design/MSzjN3CWi15TDh7jyYJlyW/Figma-basics?node-id=1669-162202&node-type=CANVAS&t=1FM40h2f0czF8qK3-0)
+
+
+Tela 1
+
+Título da página: "Classificação de Soft Skills"
+Lista de soft skills: Uma lista com as soft skills a serem classificadas, como Comunicação, Trabalho em Equipe, Liderança, etc.
+Critérios de classificação: uma escala de 1 a 5 estrelas.
+
+Tela 2
+
+Botões de ação: Botões como "Salvar", "Cancelar" e "Resetar".
+Comentários/Notas: Um campo de texto opcional para adicionar observações sobre cada skill.

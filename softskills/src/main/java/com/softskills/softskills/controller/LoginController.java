@@ -30,7 +30,7 @@ import com.softskills.softskills.service.UsuarioService;
 @RequestMapping(produces = MediaType.TEXT_PLAIN_VALUE)
 public class LoginController {
     private final AuthenticationManager authManager;
-    private final TokenService tokenService;
+    private TokenService tokenService;
     private final UsuarioService usuarioServico;
     private final UsuarioMapper mapper;
 

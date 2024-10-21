@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Sistema de Avaliação de SKILL</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleskill.css">
+    <style>
+        img{
+            width: 100%;
+        }
+        #logo{
+            width: 4.0em;
+            height: 7.0empx;
+            margin-left: -0.3em;
+        }
+    </style>
+  </head>
+  <body>
+    <img src="./images/banner.png" alt="" >		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="active">
+				<h1><a href="index.html" class="logo"><img id="logo" src="./images/logo_skill.png"></a></h1>
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="/protótipos/sidebar-07/index.html"><span class="fa fa-home"></span> Inicio</a>
+          </li>
+          <li>
+              <a href="/protótipos/sidebar-07/avaliacaoskill.html"><span class="fa fa-user"></span> Avaliação Skill</a>
+          </li>
+          <li>
+            <a href="/protótipos/sidebar-07/registrados.html"><span class="fa fa-cogs"></span> Registros</a>
+          </li>
+          <li>
+            <a href="/protótipos/sidebar-07/index_old.html"><span class="fa fa-users"></span> Perfis</a>
+          </li>
+        </ul>
+
+        <div class="footer">
+            <p>
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados ao grupo RAZR ULTRA <i class="icon-heart" aria-hidden="true"></i><a href="https://colorlib.com" target="_blank"></a>
+              </p>
+        </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/protótipos/sidebar-07/avaliacaoskill.html">Avaliação Skill</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Botão de Ordenação -->
+        <div class="text-right mb-4">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Ordenar Perfis
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#" onclick="ordenar('nome')">Nome</a>
+                  <a class="dropdown-item" href="#" onclick="ordenar('turma')">Turma</a>
+                  <a class="dropdown-item" href="#" onclick="ordenar('disciplina')">Disciplina</a>
+                  <a class="dropdown-item" href="#" onclick="ordenar('skill')">Skills</a>
+                </div>
+            </div>
+        </div>
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <div class="container">
+            <div class="row">
+                <!-- Primeiro Perfil -->
+                <div class="col-md-4">
+                    <div class="card user-card">
+                        <div class="card-header">
+                            <h5>Profile</h5>
+                        </div>
+                        <div class="card-block">
+                            <div class="user-image">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="img-radius" alt="User-Profile-Image">
+                            </div>
+                            <h6 class="f-w-600 m-t-25 m-b-10">João</h6>
+                            <p class="text-muted">Active | Male | Born 23.05.1992</p>
+                            <hr>
+                            <p class="text-muted m-t-15">Comunicação: Bom</p>
+                            <ul class="list-unstyled activity-leval">
+                                <li class="active"style="background-color: rgba(17, 225, 24, 0.96);"></li>
+                                <li class="active" style="background-color: rgba(17, 225, 24, 0.96);"></li>
+                                <li class="active"style="background-color: rgba(17, 225, 24, 0.96);"></li>
+                                <li></li>
+                            </ul>
+                            <p class="text-muted m-t-15">Colaboração: Regular</p>
+                            <ul class="list-unstyled activity-leval">
+                                <li class="active" style="background-color: rgba(225, 225, 17, 0.96);"></li>
+                                <li class="active"style="background-color: rgba(225, 225, 17, 0.96);"></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                            <p class="text-muted m-t-15">Programação em Java: Ótimo</p>
+                            <ul class="list-unstyled activity-leval">
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                            </ul>
+                            <p class="text-muted m-t-15">Conhecimento em Estatística: Não Avaliado</p>
+                            <ul class="list-unstyled activity-leval">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segundo Perfil -->
+                <div class="col-md-4">
+                    <div class="card user-card">
+                        <div class="card-header">
+                            <h5>Profile</h5>
+                        </div>
+                        <div class="card-block">
+                            <div class="user-image">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-radius" alt="User-Profile-Image">
+                            </div>
+                            <h6 class="f-w-600 m-t-25 m-b-10">Maria</h6>
+                            <p class="text-muted">Active | Female | Born 15.07.1990</p>
+                            <hr>
+                            <p class="text-muted m-t-15">Comunicação: Excelente</p>
+                            <ul class="list-unstyled activity-leval">
+                                <li class="active" style="background-color: rgba(17, 225, 24, 0.96);"></li>
+                                <li class="active" style="background-color: rgba(17, 225, 24, 0.96);"></li>
+                                <li class="active" style="background-color: rgba(17, 225, 24, 0.96);"></li>
+                                <li class="active" style="background-color: rgba(17, 225, 24, 0.96);"></li>
+                            </ul>
+                            <p class="text-muted m-t-15">Colaboração: Bom</p>
+                            <ul class="list-unstyled activity-leval">
+                                <li class="active" style="background-color: rgba(225, 225, 17, 0.96);"></li>
+                                <li class="active" style="background-color: rgba(225, 225, 17, 0.96);"></li>
+                                <li class="active" style="background-color: rgba(225, 225, 17, 0.96);"></li>
+                                <li></li>
+                            </ul>
+                            <p class="text-muted m-t-15">Programação em Python: Regular</p>
+                            <ul class="list-unstyled activity-leval">
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                            <p class="text-muted m-t-15">Conhecimento em Estatística: Bom</p>
+                            <ul class="list-unstyled activity-leval">
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terceiro Perfil -->
+                <div class="col-md-4">
+                    <div class="card user-card">
+                        <div class="card-header">
+                            <h5>Profile</h5>
+                        </div>
+                        <div class="card-block">
+                            <div class="user-image">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-radius" alt="User-Profile-Image">
+                            </div>
+                            <h6 class="f-w-600 m-t-25 m-b-10">Carlos</h6>
+                            <p class="text-muted">Active | Male | Born 08.12.1988</p>
+                            <hr>
+                            <p class="text-muted m-t-15">Comunicação: Regular</p>
+                            <ul class="list-unstyled activity-leval">
+                                <li class="active" style="background-color: rgba(225, 225, 17, 0.96);"></li>
+                                <li class="active" style="background-color: rgba(225, 225, 17, 0.96);"></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                            <p class="text-muted m-t-15">Colaboração: Ótimo</p>
+                            <ul class="list-unstyled activity-leval">
+                                <li class="active" style="background-color: rgba(17, 225, 24, 0.96);"></li>
+                                <li class="active" style="background-color: rgba(17, 225, 24, 0.96);"></li>
+                                <li class="active" style="background-color: rgba(17, 225, 24, 0.96);"></li>
+                                <li></li>
+                            </ul>
+                            <p class="text-muted m-t-15">Programação em C++: Excelente</p>
+                            <ul class="list-unstyled activity-leval">
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                            </ul>
+                            <p class="text-muted m-t-15">Conhecimento em Estatística: Regular</p>
+                            <ul class="list-unstyled activity-leval">
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- Fim da linha dos perfis -->
+        </div> <!-- Fim do container -->
+      </div>
+		</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+

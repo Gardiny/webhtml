@@ -1,0 +1,17 @@
+Requisitos funcionais:	Descrição
+
+RF1	    "Criar as telas de cadastro de todas as entidades acima, juntamente com os controllers, repo, service e class."
+RF2	    "Criar as telas das avaliações das skills dos alunos e um sistema que peque esses dados e armazene. Para as softskills, deve colocar uma opção ""Não mensurado"" que não impactaram na pontuação final. O sistema deve conter pesos diferentes para cada tipo de usuário."
+RF3	    "Criar um mecanismo para que professores possam fornecer feedback textual qualitativo junto com as avaliações quantitativas das skills dos alunos. Um histórico completo de todas as avaliações realizadas para cada aluno, permitindo visualizar a evolução das skills ao longo do tempo."
+RF4	    "Funcionalidade para exportar dados de avaliações, rankings e relatórios em diferentes formatos para análises externas."
+RF5	    "Mudar a visualização das telas dependendo do nível de acesso do usuário. Cadastrar novos usuários no sistema de definir seus cargos."
+
+=============================================================================================================================================
+
+Requisitos não funcionais:	Descrição
+
+RNF1	"O sistema deve ser compatível com múltiplos dispositivos e navegadores (ex: desktops, tablets, smartphones) sem perda de funcionalidade ou responsividade."
+RNF2	"A criação de uma nova skill não deve impactar alunos antigos."
+RNF3	"A interface deve ser intuitiva e fácil de usar, com uma curva de aprendizado mínima para novos usuários."
+RNF4	"Segurança de acesso, com utilização de tokens para validar o acesso do usuário."
+

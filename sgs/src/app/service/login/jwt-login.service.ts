@@ -148,7 +148,7 @@ export class JwtLoginService implements ILoginService {
     if (estaExpirado) {
       this.logout();
     }
-
+    console.log("logout jwt")
     return !estaExpirado;
   }
 

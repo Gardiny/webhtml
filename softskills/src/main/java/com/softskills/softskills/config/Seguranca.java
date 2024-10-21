@@ -15,8 +15,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.csrf.XorCsrfTokenRequestAttributeHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -56,7 +54,7 @@ public class Seguranca {
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.httpBasic(withDefaults());
         http.cors(withDefaults());
-        http.csrf(csrf -> csrf.disable()); 
+        http.csrf(csrf -> csrf.disable());
         http.authenticationProvider(authProvider());
         http.sessionManagement(
             session -> session.sessionCreationPolicy(
@@ -65,20 +63,10 @@ public class Seguranca {
             )
         );
 
-        // XorCsrfTokenRequestAttributeHandler gerenciadorCsrf = new XorCsrfTokenRequestAttributeHandler();
-        // gerenciadorCsrf.setCsrfRequestAttributeName(null);
-        // http.csrf(
-        //     csrf -> csrf
-        //         .ignoringRequestMatchers("/login")
-        //         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-        //         .csrfTokenRequestHandler(gerenciadorCsrf::handle)
-        // );
-
         http.authorizeHttpRequests(
             authorize -> authorize
                 // .anyRequest().permitAll() // pode navegar sem login
                 .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                .requestMatchers(HttpMethod.POST, "/aluno/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
         );
 

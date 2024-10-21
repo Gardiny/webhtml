@@ -1,0 +1,33 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-label {
+  font-weight: 600;
+}
+
+.btn-success {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-success:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+input::placeholder {
+  color: #6c757d;
+}
+
+select.form-select {
+  padding-right: 40px;
+}
+.custom-blue {
+  background-color: #007bff; /* Azul padrão do Bootstrap */
+}

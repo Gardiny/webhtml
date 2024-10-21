@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Sistema de Avaliação de SKILL</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/protótipos/sidebar-07/css/style.css">
+    <link rel="stylesheet" href="/protótipos/formulario/styleavaliacao.css">
+    
+    
+  </head>
+  <body>
+		<div><img src="./images/banner.png" alt="" ></div>
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="active">
+				<h1><a href="" class="logo">Skill's</a></h1>
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="/protótipos/sidebar-07/index.html"><span class="fa fa-home"></span> Inicio</a>
+          </li>
+          <li>
+              <a href="/protótipos/sidebar-07/avaliacaoskill.html"><span class="fa fa-user"></span> Avaliação Skill</a>
+          </li>
+          <li>
+            <a href="/protótipos/sidebar-07/CadastroProfessor.html"><span class="fa fa-sticky-note"></span> Cadastros</a>
+          </li>
+          <li>
+            <a href="/protótipos/sidebar-07/registrados.html"><span class="fa fa-cogs"></span> Registros</a>
+          </li>
+        </ul>
+
+        <div class="footer">
+          <p>
+					  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados ao grupo RAZR ULTRA <i class="icon-heart" aria-hidden="true"></i><a href="https://colorlib.com" target="_blank"></a>
+					</p>
+        </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/protótipos/sidebar-07/index.html#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/protótipos/sidebar-07/avaliacaoskill.html">Acaliação Skill</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/protótipos/sidebar-07/CadastroProfessor.html">Cadastros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/protótipos/sidebar-07/registrados.html">Registros</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Cadastro Alunos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#perfil" role="tab" aria-controls="profile" aria-selected="false">Cadastro Professores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contato" role="tab" aria-controls="contact" aria-selected="false">Cadastro curso</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contato" role="tab" aria-controls="contact" aria-selected="false">Cadastro Disciplina</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><div class="accordion" id="accordionExample">
+
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="inputEmail4">Nome</label>
+                  <input type="text" class="form-control" id="inputEmail4" placeholder="Nome">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputPassword4">Bairro</label>
+                  <input type="text" class="form-control" id="inputPassword4" placeholder="Bairro">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputAddress">Rua</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="inputAddress">Número</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Nª">
+                </div>
+              </div>
+             
+              <div class="form-row">
+                <div class="form-group col-md-2">
+                  <label for="inputEstado">Curso</label>
+                  <select id="inputEstado" class="form-control">
+                    <option selected>Escolher...</option>
+                    <option>Web Academy1</option>
+                    <option>Web Academy2</option>
+                    <option>Web Academy3</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="inputCity">Data Inicio</label>
+                  <input type="date" class="form-control" id="inputCity">
+                </div>
+          
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  
+                 
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+            
+
+          </div>
+          
+          
+        
+      
+      
+
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+

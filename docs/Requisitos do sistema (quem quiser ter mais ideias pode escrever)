@@ -1,0 +1,20 @@
+Requisitos funcionais:
+1. Cadastro de alunos, turmas, professores, coordenadores,skills, diciplinas e capacitações(além de usuarios):
+    Criar as telas de cadastro de todas as entidades acima, juntamente com os controllers, repo, service e class.
+2. Criar metodos para avaliar os professores avaliarem as skills:
+    Criar as telas das avaliações das skills dos alunos e um sistema que peque esses dados e armazene.
+    Para as softskills, deve colocar umaopção "Não mensurado" que não impactaram na pontuação final.
+    O sistema deve conter pesos diferentes para cada tipo de usuario.
+3. Criar sistema de visualização e ranqueamento das skills dos ususarios e uma visão geral da turma:
+    Uma tela especifica para rankear dependendo da skill escolhida de todos os alunos das turmas e / ou juntar com outras turmas (Tela separada?)
+    Tela para ver os dados de um aluno especifico e suas respectivas medias das skills.
+    Tela para ver os desempenho geral da turma media em hardskill e softskill (Graficos separados).
+    (Opicional) Comparativo com outras turmas.
+4. Gerenciar os niveis de acesso e ususarios no sistema.
+    Mudar a visualização das telas dependendo do nivel de acesso do usuario.
+    Cadastrar novos ususarios no sistema de definir seus cargos.
+
+Requisistos não funcionais:
+1. A criação de uma nova skill não deve impactar alunos antigos.
+2. Segurança de acesso, com utilização de tokens para valiar o acesso do usuario.
+  

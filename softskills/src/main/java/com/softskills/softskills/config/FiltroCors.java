@@ -15,7 +15,6 @@ public class FiltroCors {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(Arrays.asList("http://127.0.0.1:5500", "http://localhost:4200", "http://127.0.0.1:8080","http://127.0.0.1:9000"));
-        config.setAllowCredentials(true);
         config.setAllowedMethods(Arrays.asList("*"));
         config.setAllowedHeaders(Arrays.asList("*"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

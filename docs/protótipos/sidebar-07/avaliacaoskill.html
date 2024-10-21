@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Sistema de Avaliação de SKILL</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/protótipos/sidebar-07/css/style.css">
+    <link rel="stylesheet" href="/protótipos/formulario/styleavaliacao.css">
+
+    <style>
+      body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          font-family: Arial, sans-serif;
+      }
+
+      .container {
+          width: 80%;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .menu, .submenu-item {
+        color: black;
+          background-color: #f9f9f9;
+          padding: 10px;
+          cursor: pointer;
+          border-bottom: 1px solid #ddd;
+          
+      }
+
+      .menu:hover, .submenu-item:hover {
+          background-color: #e9e9e9;
+          color: blue;
+      }
+
+      .submenu, .sub-submenu {
+          display: none;
+          padding-left: 20px;
+          background-color: #f1f1f1;
+          color: black;
+      }
+
+      .submenu div {
+          padding: 5px 0;
+      }
+      .centralizar{
+      text-align: left;
+      vertical-align: middle;
+      height: 100px;
+      }
+  </style>
+  <script>
+      function toggleMenu(menuId) {
+          const submenu = document.getElementById(menuId);
+          submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+      }
+  </script>
+    
+    
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="active">
+				<h1><a href="" class="logo">Skill's</a></h1>
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="/protótipos/sidebar-07/index.html"><span class="fa fa-home"></span> Inicio</a>
+          </li>
+          <li>
+              <a href="/protótipos/sidebar-07/avaliacaoskill.html"><span class="fa fa-user"></span> Avaliação Skill</a>
+          </li>
+          <li>
+            <a href="/protótipos/sidebar-07/registrados.html"><span class="fa fa-cogs"></span> Registros</a>
+          </li>
+          <li>
+            <a href="/protótipos/sidebar-07/index_old.html"><span class="fa fa-users"></span> Perfis</a>
+          </li>
+        </ul>
+
+        <div class="footer">
+        	<p>
+					  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados ao grupo RAZR ULTRA <i class="icon-heart" aria-hidden="true"></i><a href="https://colorlib.com" target="_blank"></a>
+					</p>
+        </div>
+        
+    	 </nav>
+
+        <!-- Page Content  -->
+         
+      <div id="content" class="p-4 p-md-8">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/protótipos/sidebar-07/index.html#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/protótipos/sidebar-07/avaliacaoskill.html">Avaliação Skill</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/protótipos/sidebar-07/registrados.html">Registos</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+  <!-- Dropdown para seleção de Disciplina e Turma com Bootstrap -->
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="disciplina" class="text-primary">Selecione a Disciplina:</label>
+          <select class="form-control" id="disciplina">
+            <option value="Matemática">Topicos Emergentes</option>
+            <option value="Programação">Programação Back-End</option>
+            <option value="Estatística">Programação Front-End</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="turma" class="text-primary">Selecione a Turma:</label>
+          <select class="form-control" id="turma">
+            <option value="Turma A">Turma 1</option>
+            <option value="Turma B">Turma 2</option>
+            <option value="Turma C">Turma 3</option>
+          </select>
+        </div>
+      </div>
+    </div>
+        <div class="container">
+          <!-- Menu 1 -->
+          <div class="menu" onclick="toggleMenu('submenu1')">RAURIMAR SOUSA MUNIZ</div>
+          <div id="submenu1" class="submenu">
+              <div class="submenu-item" onclick="toggleMenu('submenu1-hard')">Hard Skill</div>
+              <div id="submenu1-hard" class="sub-submenu">
+                <div>
+                  <table class="table table-striped table-hover">
+                    <th>Requisito</th>
+                    <th>Avaliação</th>
+                    <tr class="centralizar">
+                      <td>
+                        Java: Experiencia do aluno em javaScript, medido pelo envio de atividade e capacidade de resolver problemas.
+                      </td>
+                      <td>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                          <label class="form-check-label" for="inlineCheckbox1">Ruim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+                          <label class="form-check-label" for="inlineCheckbox2">Neutro</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Bom</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Muito Bom</label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Boa Escrita: Coerencia e elegancia do código, como alinhamento e uso de variaveis autoexplicativas.
+                      </td>
+                      <td>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                          <label class="form-check-label" for="inlineCheckbox1">Ruim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+                          <label class="form-check-label" for="inlineCheckbox2">Neutro</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Bom</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Muito Bom</label>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                  
+              </div>
+              <div class="submenu-item" onclick="toggleMenu('submenu1-soft')">Soft Skill</div>
+              <div id="submenu1-soft" class="sub-submenu">
+                  <div>
+                    <table class="table table-striped table-hover">
+                      <th>Requisito</th>
+                      <th>Avaliação</th>
+                      <tr>
+                        <td>
+                          Comunicação: medida pela oratoria do aluno com o professor e / ou com outros alunos.
+                        </td>
+                        <td>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                            <label class="form-check-label" for="inlineCheckbox1">Não avaliado</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+                            <label class="form-check-label" for="inlineCheckbox2">Ruim</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Neutro</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Bom</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Muito Bom</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Liderança: Capacidade do aluno em gerenciar uma atividade em grupo.
+                        </td>
+                        <td>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                            <label class="form-check-label" for="inlineCheckbox1">Não avaliado</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+                            <label class="form-check-label" for="inlineCheckbox2">Ruim</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Neutro</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Bom</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Muito Bom</label>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  
+              </div>
+          </div>
+  
+          <!-- Menu 2 -->
+          <div class="menu" onclick="toggleMenu('submenu2')">PAULO HENRIQUE COSTA MATOS</div>
+          <div id="submenu2" class="submenu">
+            <div class="submenu-item" onclick="toggleMenu('submenu2-hard')">Hard Skill</div>
+            <div id="submenu2-hard" class="sub-submenu">
+              <div>
+                <table class="table table-striped table-hover">
+                  <th>Requisito</th>
+                  <th>Avaliação</th>
+                  <tr class="centralizar">
+                        <td>
+                          Comunicação: medida pela oratoria do aluno com o professor e / ou com outros alunos.
+                        </td>
+                        <td>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                            <label class="form-check-label" for="inlineCheckbox1">Não avaliado</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+                            <label class="form-check-label" for="inlineCheckbox2">Ruim</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Neutro</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Bom</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Muito Bom</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Liderança: Capacidade do aluno em gerenciar uma atividade em grupo.
+                        </td>
+                        <td>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                            <label class="form-check-label" for="inlineCheckbox1">Não avaliado</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+                            <label class="form-check-label" for="inlineCheckbox2">Ruim</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Neutro</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Bom</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Muito Bom</label>
+                          </div>
+                        </td>
+                  </tr>
+                </table>
+              </div>
+                
+            </div>
+            <div class="submenu-item" onclick="toggleMenu('submenu2-soft')">Soft Skill</div>
+            <div id="submenu2-soft" class="sub-submenu">
+                <div>
+                  <table class="table table-striped table-hover">
+                    <th>Requisito</th>
+                    <th>Avaliação</th>
+                    <tr>
+                      <td>
+                        Comunicação: medida pela oratoria do aluno com o professor e / ou com outros alunos.
+                      </td>
+                      <td>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                          <label class="form-check-label" for="inlineCheckbox1">Não avaliado</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+                          <label class="form-check-label" for="inlineCheckbox2">Ruim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Neutro</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Bom</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Muito Bom</label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Liderança: Capacidade do aluno em gerenciar uma atividade em grupo.
+                      </td>
+                      <td>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                          <label class="form-check-label" for="inlineCheckbox1">Não avaliado</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+                          <label class="form-check-label" for="inlineCheckbox2">Ruim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Neutro</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Bom</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Muito Bom</label>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                
+            </div>
+        </div>
+  
+          <!-- Menu 3 -->
+          <div class="menu" onclick="toggleMenu('submenu3')">IGOR GARDINY ROCHA SILVA</div>
+          <div id="submenu3" class="submenu">
+              <div class="submenu-item" onclick="toggleMenu('submenu3-hard')">Hard Skill</div>
+              <div id="submenu3-hard" class="sub-submenu">
+                  <div>
+                    <table class="table table-striped table-hover">
+                      <th>Requisito</th>
+                      <th>Avaliação</th>
+                      <tr>
+                        <td>
+                          Java: Experiencia do aluno em javaScript, medido pelo envio de atividade e capacidade de resolver problemas.
+                        </td>
+                        <td>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                            <label class="form-check-label" for="inlineCheckbox1">Ruim</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+                            <label class="form-check-label" for="inlineCheckbox2">Neutro</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Bom</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Muito Bom</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Boa Escrita: Coerencia e elegancia do código, como alinhamento e uso de variaveis autoexplicativas.
+                        </td>
+                        <td>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                            <label class="form-check-label" for="inlineCheckbox1">Ruim</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+                            <label class="form-check-label" for="inlineCheckbox2">Neutro</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Bom</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                            <label class="form-check-label" for="inlineCheckbox3">Muito Bom</label>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                    
+                </div>
+                <div class="submenu-item" onclick="toggleMenu('submenu3-soft')">Soft Skill</div>
+              <div id="submenu3-soft" class="sub-submenu">
+                  <div><table class="table table-striped table-hover">
+                    <th>Requisito</th>
+                    <th>Avaliação</th>
+                    <tr>
+                      <td>
+                        Comunicação: medida pela oratoria do aluno com o professor e / ou com outros alunos.
+                      </td>
+                      <td>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                          <label class="form-check-label" for="inlineCheckbox1">Não avaliado</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+                          <label class="form-check-label" for="inlineCheckbox2">Ruim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Neutro</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Bom</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Muito Bom</label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Liderança: Capacidade do aluno em gerenciar uma atividade em grupo.
+                      </td>
+                      <td>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                          <label class="form-check-label" for="inlineCheckbox1">Não avaliado</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="opcao2">
+                          <label class="form-check-label" for="inlineCheckbox2">Ruim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Neutro</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Bom</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="opcao3">
+                          <label class="form-check-label" for="inlineCheckbox3">Muito Bom</label>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              
+                  
+              </div>
+              
+                  </div>
+                  
+              </div>
+          </div>
+      </div>  
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+

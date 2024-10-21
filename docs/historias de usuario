@@ -1,0 +1,14 @@
+1. como administrador quero cadastrar uma capacitação. (Nome local).
+2. Como administrador quero cadastrar um cordenador. (Dados pessoais e vincular a uma capacitação).
+3. Como cordenador quero cadastrar uma diciplina. (nome, skils, carga horaria, turma professor responsavel).
+4. Como cordenador quero cadastrar uma turma (Alunos, numero da turma, status).
+5. Como cordenador, quero cadastrar uma skil.
+6. Como cordenador quero colocar uma descrição na skil.
+7. Como cordenador, quero cadstrar um professor.
+8. Como cordenador, quero vincular um professor a uma diciplina.
+9. Como cordenador, quero cadastrar alunos.
+10. Como cordenador, quero visualizar a avaliação das skils.
+11. Como professor, quero avaliar as skils dos alunos.
+12. Como professor, quero visualizar a avaliação das skils.
+
+(Depois eu crio um BackLog para a criação das telas de cada um desses topicos, talvem algum se fundam em 1)
