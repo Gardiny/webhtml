@@ -7,6 +7,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Aluno {
@@ -22,6 +24,8 @@ public class Aluno {
     @Column(nullable = false)
     private String email;
 
+    private String cpf;
+
     @Column
     private String telefone;
 
@@ -35,6 +39,9 @@ public class Aluno {
 
     @Column(columnDefinition = "LONGTEXT")
     private String foto;
+
+    @OneToOne
+    private Usuario usuario;
 
     public Long getId() {
         return id;
@@ -90,6 +97,22 @@ public class Aluno {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     

@@ -1,9 +1,9 @@
 <form id="cadastroSkillForm" (submit)="save()" [formGroup]="formSkill">
-  <div class="backTitulo"><h3 class="tituloComponents">Cadastro de Skill's</h3></div>
+  <div class="backTitulo"><h3 class="tituloComponents">Cadastro de Skills</h3></div>
   <div class="form-row">
     <div class="col-md-4 mb-3">
         <label for="nomeSkill" class="form-label">Nome</label>
-        <input type="text" class="form-control" id="nomeSkill" formControlName="nome" placeholder="Nome da skill" required>
+        <input type="text" class="form-control" id="nomeSkill" formControlName="nome" placeholder="Digite o nome da skill" required>
     </div>
     <div class="col-md-3 mb-3">
         <label for="tipoSkill" class="form-label">Tipo de Skill</label>
@@ -16,7 +16,7 @@
   </div>
   <div class="col-md-12 mb-3">
     <label for="descricaoSkill" class="form-label">Descrição</label>
-    <input type="text" class="form-control" id="descricaoSkill" formControlName="descricao" placeholder="Descrição da skill" required>
+    <input type="text" class="form-control" id="descricaoSkill" formControlName="descricao" placeholder="Digite a descrição da skill" required>
 </div>
     <div class="modal-footer">
       <button type="submit" value="salvar" class="btn btn-primary">Salvar</button>

@@ -1,0 +1,46 @@
+  /** LABEL **/
+
+  #layoutAuthentication{
+  background-image: url("/sgs/public/background.png");
+   border: 1px solid red;
+
+  }
+  .form-group{
+    margin-top: 10px;
+}
+
+.input-group label {
+  position: absolute;
+  top: 0px;
+  left: 45px;
+  color: transparent;
+  transition: all 0.5s linear;
+  z-index: 3;
+  opacity: 0;
+  padding: 39px;
+}
+input:focus + label, input:hover + label, select:focus + label, select:hover + label  {
+margin-top: -35px;
+  left: 5px;
+  color: black;
+  z-index: 3;
+  font-size: 15px;
+  margin-bottom: 9px;
+
+}
+#usuario{
+margin-top: 20px;
+margin-bottom: 30px;
+}
+#layoutAuthentication_content{
+  margin-bottom: -40px;
+}
+#senha{
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%; /* Ocupa toda a largura do contêiner pai */
+  max-width: 500px; /* Define uma largura máxima */
+}
+

@@ -4,6 +4,7 @@ public enum EPapel {
 
     ADMIN,
     PROFESSOR,
-    COORDENADOR;
+    COORDENADOR,
+    ALUNO;
     
 }

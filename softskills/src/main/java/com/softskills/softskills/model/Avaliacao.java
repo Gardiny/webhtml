@@ -2,8 +2,6 @@ package com.softskills.softskills.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,9 +17,8 @@ public class Avaliacao {
     @Column(nullable = false, updatable = false)
     private Long id;
     
-    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ENota nota;
+    private Integer nota;
 
     @Column(nullable = false)
     private LocalDateTime data;
@@ -46,13 +43,6 @@ public class Avaliacao {
         this.id = id;
     }
 
-    public ENota getNota() {
-        return nota;
-    }
-
-    public void setNota(ENota nota) {
-        this.nota = nota;
-    }
 
     public LocalDateTime getData() {
         return data;
@@ -92,6 +82,14 @@ public class Avaliacao {
 
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
+    }
+
+    public Integer getNota() {
+        return nota;
+    }
+
+    public void setNota(Integer nota) {
+        this.nota = nota;
     }
 
     

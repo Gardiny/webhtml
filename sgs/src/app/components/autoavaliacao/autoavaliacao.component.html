@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Autoavaliação de {{ alunoLogado?.nome }} na disciplina {{ nomeDisciplina }}</h2>
+
+  <div *ngIf="skills.length > 0; else noSkills">
+    <div *ngFor="let skill of skills; index as i" class="card shadow-sm mb-4" style="max-width: 700px; margin: 0 auto; border-radius: 10px;">
+      <div class="card-header bg-primary text-white" style="border-top-left-radius: 10px; border-top-right-radius: 10px;">
+        <h5 class="card-title mb-0">{{ skill.skill_nome }}</h5>
+      </div>
+
+      <div class="card-body">
+        <p class="card-text text-muted">{{ skill.descricao }}</p>
+
+        <!-- Escala de Nota em Formato de Radio -->
+        <div class="form-group text-center">
+          <label class="form-label font-weight-bold d-block mb-2">Nota:</label>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <ng-container *ngFor="let nota of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+              <label class="btn btn-outline-secondary mx-1 px-3" (click)="this.avaliarSkill(skill.skill_id, nota)">
+                  <input
+                      type="radio"
+                      name="nota{{ skill.skill_id }}"
+                      [value]="nota"
+                  />{{ nota }}
+              </label>
+            </ng-container>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noSkills>
+    <p class="text-center text-muted">Nenhuma skill registrada para esta disciplina.</p>
+  </ng-template>
+</div>

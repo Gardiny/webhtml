@@ -118,4 +118,15 @@ export class BasicLoginService implements ILoginService {
       headers: request.headers.set('X-Requested-With', 'XMLHttpRequest')
     });
   }
+
+  getUsuarioLogado(): Usuario | null {
+    if (this.isBrowser()) {
+      const userData = sessionStorage.getItem('usuario');
+      if (userData) {
+        const usuario = JSON.parse(userData) as Usuario;
+        return usuario;
+      }
+    }
+    return null;
+  }
 }

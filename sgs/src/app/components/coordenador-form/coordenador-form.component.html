@@ -3,18 +3,18 @@
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="nomeCapacitacao" class="form-label">Nome</label>
-      <input type="text" class="form-control" id="nomeCapacitacao" formControlName="nome" placeholder="nome do coordenador">
+      <input type="text" class="form-control" id="nomeCapacitacao" formControlName="nome" placeholder="Digite o nome do coordenador">
   </div>
   <div class="col-md-3 mb-3">
           <label for="email" class="form-label">Email</label>
-          <input type="text" class="form-control" id="Email" formControlName="email" placeholder="Email">
+          <input type="text" class="form-control" id="Email" formControlName="email" placeholder="Digite o email">
       </div>
       <div class="col-md-3 mb-3">
         <label for="telefone" class="form-label">Telefone</label>
-        <input type="fone" class="form-control" id="Telefone"  formControlName="telefone" placeholder="Telefone">
+        <input type="fone" class="form-control" id="Telefone"  formControlName="telefone" placeholder="Digite o telefone">
       </div>
       <div class="col-md-3 mb-3">
-        <label for="usuario" class="form-label">Usuario</label>
+        <label for="usuario" class="form-label">Usuário</label>
         <select id="usuario" class="form-select" formControlName="usuario_id">
             <option *ngFor="let u of usuario" [ngValue]="u.id">{{u.nome_completo}}</option>
         </select>

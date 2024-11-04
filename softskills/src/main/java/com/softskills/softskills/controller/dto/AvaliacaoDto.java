@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 
 public record AvaliacaoDto(
     Long id,
-    @NotBlank String nota,
+    @NotNull Integer nota,
     @NotNull LocalDateTime data,
     @NotNull Long professor_id,
     String professor_nome,

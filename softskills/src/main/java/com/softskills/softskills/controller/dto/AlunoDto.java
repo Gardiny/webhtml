@@ -13,12 +13,14 @@ public record AlunoDto(
     @NotBlank String cpf,
     @Email (
         message = "deve ser um domío de email valido",
-        regexp = "^(.+)@^(+)")
+        regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")
     String email,
     @NotBlank
-    @Pattern(regexp = "^\\(\\d{2}\\) \\d{4,5}-\\d{4}$" )
     String telefone,
     String sexo,
-    String status
+    String status,
+    Long usuario_id,
+    String usuario_nome_completo,
+    String usuario_nome_usuario
 ) {
 }

@@ -148,7 +148,7 @@ export class JwtLoginService implements ILoginService {
     if (estaExpirado) {
       this.logout();
     }
-    console.log("logout jwt")
+    // console.log("logout jwt")
     return !estaExpirado;
   }
 
@@ -162,6 +162,17 @@ export class JwtLoginService implements ILoginService {
       });
     }
     return request;
+  }
+
+  getUsuarioLogado(): Usuario | null {
+    if (this.isBrowser()) {
+      const userData = sessionStorage.getItem('usuario');
+      if (userData) {
+        const usuario = JSON.parse(userData) as Usuario;
+        return usuario;
+      }
+    }
+    return null;
   }
 
 }

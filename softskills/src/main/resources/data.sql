@@ -1,11 +1,13 @@
-INSERT INTO usuario (nome_completo, nome_usuario, senha, papel, ativo) VALUES 
-('Daricelio', 'dari123', '$2a$12$V03BcpEIEafC1RaY.JBClOH7zxwQivzgu1NEAJUT4Wrza8nlXRi.S', 'COORDENADOR', true),
-('Daniel', 'danzinho123', '$2a$12$vKtQzByx.nrmTRMPiDjh0OmDdvk2V..qSpTzhPw0s8SFEwtAxRp5a', 'PROFESSOR', true),
-('Limeira', 'limoeiro', '$2a$12$jMfSl06n45qSGeg94Kf07.KO/sEXOKqxQv/Fu.sCou2/vAvdM/zKO', 'PROFESSOR', true),
-('Nasserala', 'macarronada', '$2a$12$68h2CqQPIgwzKUojx4DbJeYMXX5cn7RpkBuyjqPyzD4UQXYobfwbC', 'PROFESSOR', true),
-('Rodrigo', 'rodrigozinho', '$2a$12$8h/.Qj9uZKMNc4izXE5oU.FKMAVkjBv6kfKYdqtNHDe0JPetTgzkC', 'PROFESSOR', true),
-('Catarina', 'catrina', '$2a$12$LM8KZtSmv.DBZUE46o0DrOapbwn7WscAPWYdS7eMjMmt2/uZdlYGq', 'PROFESSOR', true),
-('Admin','admin','$2a$12$ZDa72F.OQrgP2bA05mtrTecYj/qRvNpXljP2j39b0BTy2tHURSQSi','ADMIN',true);
+INSERT INTO usuario (nome_completo, nome_usuario, email, senha, papel, ativo) VALUES 
+('Daricelio', 'dari123','daricelio@sou.ufac.br', '$2a$12$V03BcpEIEafC1RaY.JBClOH7zxwQivzgu1NEAJUT4Wrza8nlXRi.S', 'COORDENADOR', true),
+('Daniel', 'danzinho123', 'daniel@sou.ufac.br', '$2a$12$vKtQzByx.nrmTRMPiDjh0OmDdvk2V..qSpTzhPw0s8SFEwtAxRp5a', 'PROFESSOR', true),
+('Limeira', 'limoeiro', 'limeira@sou.ufac.br', '$2a$12$jMfSl06n45qSGeg94Kf07.KO/sEXOKqxQv/Fu.sCou2/vAvdM/zKO', 'PROFESSOR', true),
+('Nasserala', 'macarronada', 'nasserala@sou.ufac.br','$2a$12$68h2CqQPIgwzKUojx4DbJeYMXX5cn7RpkBuyjqPyzD4UQXYobfwbC', 'PROFESSOR', true),
+('Rodrigo', 'rodrigozinho', 'rodrigo@sou.ufac.br','$2a$12$8h/.Qj9uZKMNc4izXE5oU.FKMAVkjBv6kfKYdqtNHDe0JPetTgzkC', 'PROFESSOR', true),
+('Catarina', 'catrina', 'catarina@sou.ufac.br','$2a$12$LM8KZtSmv.DBZUE46o0DrOapbwn7WscAPWYdS7eMjMmt2/uZdlYGq', 'PROFESSOR', true),
+('Admin','admin',"admin@gmail.com",'$2a$12$ZDa72F.OQrgP2bA05mtrTecYj/qRvNpXljP2j39b0BTy2tHURSQSi','ADMIN',true),
+('Allan','allan',"allan@gmail.com",'$2a$12$ZDa72F.OQrgP2bA05mtrTecYj/qRvNpXljP2j39b0BTy2tHURSQSi','aluno',true);
+
 
 INSERT INTO coordenador ( nome, email, telefone, usuario_id) VALUES 
 ('Daricelio', 'daricelio@sou.ufac.br', '(68)98756-2547', 1);
@@ -71,8 +73,10 @@ INSERT INTO skill ( nome, descricao, tipo) VALUES
 ( 'Autogestão', 'Capacidade de gerir o próprio tempo e trabalho sem supervisão direta', 'SOFT_SKILL');
 
 
+INSERT INTO aluno (nome, email, telefone,sexo, status, usuario_id) VALUES 
+( 'Allan Victor san' , 'allan.victor@gmail.com', '(68)98623-2354','M', 'ativo',8);
+
 INSERT INTO aluno (nome, email, telefone,sexo, status) VALUES 
-( 'Allan Victor san', 'allan.victor@gmail.com', '(68)98623-2354','M', 'ativo'),
 ( 'Paulo Guina', 'PaulãoDoAmassa@gmail.com', '(69)66699-6969','M', 'ativo'),
 ( 'Beatriz Souza', 'beatriz.souza@gmail.com', '(68)98234-1234', 'F', 'ativo'),
 ('Carlos Lima', 'carlos.lima@gmail.com', '(68)98765-4321', 'M', 'ativo'),

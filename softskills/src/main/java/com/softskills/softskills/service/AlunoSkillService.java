@@ -12,14 +12,12 @@ import com.softskills.softskills.controller.dto.AlunoSkillDto;
 import com.softskills.softskills.model.Aluno;
 import com.softskills.softskills.model.AlunoSkill;
 import com.softskills.softskills.model.AlunoSkillId;
-import com.softskills.softskills.model.Disciplina;
 import com.softskills.softskills.model.DisciplinaSkill;
 import com.softskills.softskills.model.Skill;
 import com.softskills.softskills.model.TurmaAluno;
 import com.softskills.softskills.model.TurmaDisciplina;
 import com.softskills.softskills.repository.AlunoRepository;
 import com.softskills.softskills.repository.AlunoSkillRepository;
-import com.softskills.softskills.repository.DisciplinaRepository;
 import com.softskills.softskills.repository.DisciplinaSkillRepository;
 import com.softskills.softskills.repository.SkillRepository;
 import com.softskills.softskills.repository.TurmaAlunoRepository;
@@ -74,6 +72,9 @@ public class AlunoSkillService {
         registro.setId(id);
         registro.setAluno(aluno);
         registro.setSkill(skill);
+        if(dto.nota_final() != null){
+            registro.setNota_final(dto.nota_final());
+        }
         return repo.save(registro);
     }
 
@@ -81,6 +82,7 @@ public class AlunoSkillService {
         repo.deleteById(id); 
     }
 
+    // preneche turma aluno de um aluno especifico ao ser chamado
     public void preencher(Long turmaId, Long alunoId){
         // List<Disciplina> disciplinas = discRepo.findByTurmaId(turmaId);
             List<TurmaDisciplina> turmaDisciplina = turmDiscRepo.getByTurma(turmaId);
@@ -99,6 +101,7 @@ public class AlunoSkillService {
             }
     }
 
+    // Preenche a tabela automaticamente quando a aplicação inicia 
     @EventListener(ApplicationReadyEvent.class)
     public void autoPreencher(){
         List<TurmaAluno> turmaAlunos = turmaAlunoRepo.findAll();

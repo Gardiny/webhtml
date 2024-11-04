@@ -11,7 +11,8 @@ import com.softskills.softskills.model.Coordenador;
 public interface CoordenadorMapper {
 
     @Mapping(target = "usuario_id", source = "usuario.id")
-    @Mapping(target = "usuario_nome", source = "usuario.nome_completo")
+    @Mapping(target = "usuario_nome_completo", source = "usuario.nome_completo")
+    @Mapping(target = "usuario_nome_usuario", source = "usuario.nome_usuario")
     CoordenadorDto toDto(Coordenador coordenador);
 
     @InheritInverseConfiguration

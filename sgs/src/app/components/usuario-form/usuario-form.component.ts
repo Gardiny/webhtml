@@ -38,7 +38,8 @@ export class UsuarioFormComponent implements IForm<Usuario>{
   formUsuario = new FormGroup({
     nome_completo: new FormControl<string | null>(null),
     nome_usuario: new FormControl<string| null>(null),
-    papel: new FormControl<string| null>(null),
+    email: new FormControl<string | null>(null),
+    papel: new FormControl<string | null>(null),
     senha: new FormControl<string | null>(null),
     ativo: new FormControl<boolean| null>(null)
   });

@@ -2,12 +2,11 @@ package com.softskills.softskills.controller.dto;
 
 import java.time.LocalDateTime;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record AutoAvaliacaoDto(
     Long id,
-    @NotBlank String nota,
+    @NotNull Integer nota,
     @NotNull LocalDateTime data,
     @NotNull Long aluno_id,
     String aluno_nome,

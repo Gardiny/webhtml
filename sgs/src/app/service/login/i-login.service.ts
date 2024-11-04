@@ -9,6 +9,7 @@ export interface ILoginService {
   logout(): void;
   isLoggedIn(): boolean;
   getHeaders(request: HttpRequest<any>): HttpRequest<any>;
+  getUsuarioLogado(): Usuario | null;
 }
 
 export const LoginService = new InjectionToken<ILoginService>('ILoginService')

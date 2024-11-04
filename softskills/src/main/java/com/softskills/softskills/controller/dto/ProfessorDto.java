@@ -13,7 +13,8 @@ public record ProfessorDto(
     @NotBlank
     String telefone,
     Long usuario_id,
-    String usuario_nome
+    String usuario_nome_completo,
+    String usuario_nome_usuario
 ) {
 
 }

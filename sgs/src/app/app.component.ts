@@ -19,6 +19,7 @@ import { Turma } from './model/turma';
 import { TurmaService } from './service/turma.service';
 import { ILoginService, LoginService } from './service/login/i-login.service';
 import { Usuario } from './model/usuario';
+import { LoginComponent } from './components/login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -36,7 +37,8 @@ import { Usuario } from './model/usuario';
     CapacitacaoFormComponent,
     TurmaFormComponent,
     DisciplinaFormComponent,
-    SkillFormComponent
+    SkillFormComponent,
+    LoginComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
@@ -123,11 +125,22 @@ export class AppComponent {
   }
 
   isAdmin(): boolean {
-    return this.usuario.papel == 'admin';
+    return this.usuario.papel == 'ADMIN';
+  }
+
+  isAluno(): boolean {
+    return this.usuario.papel == 'ALUNO';
+  }
+
+  isProfessor(): boolean {
+    return this.usuario.papel == 'PROFESSOR';
+  }
+
+  isCoordenador(): boolean {
+    return this.usuario.papel == 'COORDENADOR';
   }
 
   logout(): void {
     this.loginService.logout();
   }
-  
 }

@@ -1,5 +1,5 @@
 <form (submit)="save()" [formGroup]="formProfessor">
-  <div class="backTitulo"><h3 class="tituloComponents">Cadastro de professores</h3></div>
+  <div class="backTitulo"><h3 class="tituloComponents">Cadastro de Professores</h3></div>
   <div class="form-row">
     <div class="col-md-4 mb-3">
         <label for="nome" class="form-label">Nome</label>
@@ -14,7 +14,7 @@
         <input type="tel" class="form-control" id="telefone" formControlName="telefone" placeholder="Digite o telefone">
     </div>
     <div class="col-md-3 mb-3">
-        <label for="usuario" class="form-label">Usuario</label>
+        <label for="usuario" class="form-label">Usuário</label>
         <select id="usuario" class="form-select" formControlName="usuario_id">
             <option *ngFor="let u of usuario" [ngValue]="u.id">{{u.nome_completo}}</option>
         </select>

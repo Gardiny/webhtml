@@ -1,3 +1,4 @@
+import { AutoAvaliacaoDisciplinaComponent } from './components/autoavaliacao-disciplina/autoavaliacao-disciplina.component';
 import { Routes } from '@angular/router';
 import { CoordenadorFormComponent } from './components/coordenador-form/coordenador-form.component';
 import { ProfessorFormComponent } from './components/professor-form/professor-form.component';
@@ -23,10 +24,11 @@ import { AvaliarListComponent } from './components/avaliar-list/avaliar-list.com
 import { DisciplinaVisualizacaoComponent } from './components/disciplina-visualizacao/disciplina-visualizacao.component';
 import { TurmaVisualizacaoComponent } from './components/turma-visualizacao/turma-visualizacao.component';
 import { authGuard } from './service/auth.guard';
+import { AutoAvaliacaoComponent } from './components/autoavaliacao/autoavaliacao.component';
 
 export const routes: Routes = [
   { path: '', canActivate: [authGuard], children: [
-    { path: '', redirectTo: '/aluno', pathMatch: 'full' },
+    // { path: '', redirectTo: '/', pathMatch: 'full' },
     { path: 'aluno', component: AlunoListComponent },
     { path: 'aluno/form', component: AlunoFormComponent},
     { path: 'capacitacao', component: CapacitacaoListComponent},
@@ -48,8 +50,10 @@ export const routes: Routes = [
     { path: 'avaliacao', component: AvaliarListComponent},
     { path: 'avaliacao/form', component: AvaliarFormComponent},
     {path:'turmavisualizaçao',component:TurmaVisualizacaoComponent},
-    {path:'disciplinavisualizao',component: DisciplinaVisualizacaoComponent}
+    {path:'disciplinavisualizao',component: DisciplinaVisualizacaoComponent},
+    {path:'autoavaliacaoDisciplina',component:AutoAvaliacaoDisciplinaComponent},
+    {path: 'autoavaliacao/:disciplinaId', component: AutoAvaliacaoComponent }
   ] },
   { path: 'login', component: LoginComponent },
-  { path: '**', redirectTo: 'login' }
+  { path: '**', redirectTo: '' }
 ];

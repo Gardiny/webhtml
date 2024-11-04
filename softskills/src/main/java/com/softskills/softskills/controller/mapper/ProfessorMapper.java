@@ -11,7 +11,8 @@ import com.softskills.softskills.model.Professor;
 public interface ProfessorMapper {
 
     @Mapping(target = "usuario_id", source = "usuario.id")
-    @Mapping(target = "usuario_nome", source = "usuario.nome_completo")
+    @Mapping(target = "usuario_nome_completo", source = "usuario.nome_completo")
+    @Mapping(target = "usuario_nome_usuario", source = "usuario.nome_usuario")
     ProfessorDto toDto(Professor professor);
 
     @InheritInverseConfiguration

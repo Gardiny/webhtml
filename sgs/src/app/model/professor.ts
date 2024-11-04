@@ -4,5 +4,6 @@ export interface Professor {
     email: string;
     telefone: string;
     usuario_id: number;
-    usuario_nome: string;
+    usuario_nome_completo: string;
+    usuario_nome_usuario: string;
 }

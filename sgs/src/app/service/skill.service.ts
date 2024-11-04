@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { IService } from './iservice';
 import { Skill } from '../model/skill';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { RequisicaoPaginada } from '../model/requisicao-paginada';
 import { RespostaPaginada } from '../model/resposta-paginada';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
+import { DisciplinaSkillDto } from '../model/disciplina-skill';
 
 @Injectable({
   providedIn: 'root'
@@ -51,4 +52,21 @@ export class SkillService implements IService<Skill> {
     let url = this.apiUrl + id;
     return this.http.delete<void>(url);
   }
+
+  getSkillsByDisciplina(disciplinaId: number): Observable<DisciplinaSkillDto[]> {
+    const url = `${environment.API_URL}/disciplina-skill/disciplinaId/${disciplinaId}`;
+    return this.http.get<DisciplinaSkillDto[]>(url);
+  }
+  
+  getAllSkills(page: number, size: number): Observable<any> {
+    return this.http.get<any>(`${environment.API_URL}/skill/`, {
+        params: {
+            page: page.toString(),
+            size: size.toString()
+        }
+    }).pipe(
+        map(response => response) // Retorna o response completo, pois contém `content` e `totalPages`
+    );
+}  
+
 }
